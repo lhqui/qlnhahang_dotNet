@@ -44,15 +44,23 @@ namespace management
             int findindex = checkindexFoodKind(cbKind.SelectedIndex); 
             string[] tableValues = { txtName.Text, txtPrice.Text, findindex.ToString() };
             // check conditions
-            if(txtName.Text != "" && cbKind.Text != "" && checkNum(txtPrice.Text)==true )
+            if(txtName.Text != "" && cbKind.Text != "" )
             {
-                DBConnect dbc = new DBConnect();
-               dbc.Insert("foods", dbc.convertStringValue(tableValues) );
-                //MessageBox.Show(dbc.convertStringValue(tableValues));
-                if (dbc.msg != "")
+                if(checkNum(txtPrice.Text) == true)
                 {
-                    MessageBox.Show(dbc.msg);
+                    DBConnect dbc = new DBConnect();
+                    dbc.Insert("foods", dbc.convertStringValue(tableValues));
+                    if (dbc.msg != "")
+                    {
+                        MessageBox.Show(dbc.msg);
+                    }
+                } else
+                {
+                    MessageBox.Show(" Giá phải là số!");
                 }
+           
+                //MessageBox.Show(dbc.convertStringValue(tableValues));
+              
 
                 // use crtl k + c to comment all or ctrl k +u
 
@@ -80,6 +88,7 @@ namespace management
                 DataGridViewRow row = this.foodDataGridView1.Rows[e.RowIndex];
                 getIdfood(row.Cells["foodid"].Value.ToString());
                 txtName.Text = row.Cells["FoodName"].Value.ToString();
+                cbKind.Text = row.Cells["kindname"].Value.ToString();
                 txtPrice.Text = row.Cells["FoodPrice"].Value.ToString();
 
                 
@@ -171,7 +180,7 @@ namespace management
             int parValue;
             if (!int.TryParse(checkValue, out parValue))
             {
-                MessageBox.Show(" giá phải là số!");
+               // MessageBox.Show(" giá phải là số!");
                 return false;
             } else
             {
@@ -190,7 +199,7 @@ namespace management
         private void getFoodkind()
         {
             DBConnect db = new DBConnect();
-            String query = db.SelectAll("foodkind");
+            String query = db.SelectColumn("","foodkind");
             SqlDataAdapter adap = db.fillAdapter(query);
             DataSet dt = new DataSet();
             adap.Fill(dt);
@@ -204,6 +213,37 @@ namespace management
                 cbKind.Text = "not found";
             }
             
+        }
+ 
+
+        private void btnClick_Edit(object sender, EventArgs e)
+        {
+            DBConnect db = new DBConnect();
+            FoodObject x = new FoodObject();
+            x = fo.getFoodInfor(this.foodid);
+            if (x.foodName != txtName.Text || x.foodPrice !=txtPrice.Text || x.foodKind != cbKind.Text )
+            {
+                if (checkNum(txtPrice.Text) == true) {
+                    int findindex = checkindexFoodKind(cbKind.SelectedIndex);
+                    String afterSet = "foodname=N'" + txtName.Text + "', foodprice='" + txtPrice.Text + "'," 
+                        + " foodkind_id='" +findindex+"'";
+                    String afterwhere = "foodid = " + this.foodid;
+                    db.Update("foods",afterSet,afterwhere);
+                    showdata();
+                    //MessageBox.Show("difference");
+                    if (db.msg != "")
+                    {
+                        MessageBox.Show(db.msg);
+                    }
+                } else
+                {
+                    MessageBox.Show("Giá phải là số");
+                }
+                
+            } else
+            {
+                MessageBox.Show("Thông tin chưa thay đổi");
+            }
         }
     }
 }

@@ -49,6 +49,7 @@ namespace management
             this.foodkindTableAdapter = new management.nhahangDataSetTableAdapters.foodkindTableAdapter();
             this.fillByToolStrip = new System.Windows.Forms.ToolStrip();
             this.fillByToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.btnEdit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.foodDataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.foodkindBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nhahangDataSet)).BeginInit();
@@ -67,9 +68,9 @@ namespace management
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(41, 164);
+            this.button2.Location = new System.Drawing.Point(41, 254);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(144, 79);
+            this.button2.Size = new System.Drawing.Size(144, 48);
             this.button2.TabIndex = 1;
             this.button2.Text = "Xóa";
             this.button2.UseVisualStyleBackColor = true;
@@ -130,7 +131,7 @@ namespace management
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(41, 278);
+            this.button4.Location = new System.Drawing.Point(41, 327);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(144, 33);
             this.button4.TabIndex = 8;
@@ -173,7 +174,7 @@ namespace management
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(41, 338);
+            this.button5.Location = new System.Drawing.Point(41, 383);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(144, 33);
             this.button5.TabIndex = 13;
@@ -221,13 +222,23 @@ namespace management
             this.fillByToolStripButton.Name = "fillByToolStripButton";
             this.fillByToolStripButton.Size = new System.Drawing.Size(48, 24);
             this.fillByToolStripButton.Text = "FillBy";
-          
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.Location = new System.Drawing.Point(41, 143);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(144, 63);
+            this.btnEdit.TabIndex = 16;
+            this.btnEdit.Text = "Sửa";
+            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnClick_Edit);
             // 
             // Foods
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(938, 571);
+            this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.fillByToolStrip);
             this.Controls.Add(this.cbKind);
             this.Controls.Add(this.button5);
@@ -276,5 +287,6 @@ namespace management
         private nhahangDataSetTableAdapters.foodkindTableAdapter foodkindTableAdapter;
         private System.Windows.Forms.ToolStrip fillByToolStrip;
         private System.Windows.Forms.ToolStripButton fillByToolStripButton;
+        private System.Windows.Forms.Button btnEdit;
     }
 }

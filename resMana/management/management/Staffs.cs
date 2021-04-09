@@ -12,17 +12,49 @@ namespace management
 {
     public partial class Staffs : Form
     {
+        DBConnect db = new DBConnect();
+        private string staffid = "";
         public Staffs()
         {
             InitializeComponent();
+            showData();
         }
-
+        public void showData()
+        {
+            String[] arr = { "staffid", " staffname", "staffroll" };
+            String columnName = db.StringColumnName(arr);
+            String query = db.SelectColumn(columnName,"staffs");
+            db.ShowDt(query);
+            dataUserGridView1.DataSource = db.dt;
+            dataUserGridView1.Columns[0].HeaderCell.Value = "Stt";
+            dataUserGridView1.Columns[1].HeaderCell.Value = "Họ Tên";
+            dataUserGridView1.Columns[2].HeaderCell.Value = "Chức vụ";
+        }
+        
         private void btnBack(object sender, EventArgs e)
         {
             this.Hide();
             Menu mn = new Menu();
             mn.ShowDialog();
             this.Close();
+        }
+
+        private void onClickCell(object sender, DataGridViewCellEventArgs e)
+        {
+            if(e.RowIndex >= 0)
+            {
+                DataGridViewRow row = this.dataUserGridView1.Rows[e.RowIndex];
+                getStaffid(row.Cells["staffid"].Value.ToString());
+                txtName.Text = row.Cells["staffname"].Value.ToString();
+                txtRoll.Text = row.Cells["staffroll"].Value.ToString();
+            }
+        }
+        private String getStaffid(String staffid) {
+            return this.staffid = staffid;
+        }
+        private void insertUser()
+        {
+            String[] arr = {txtName.Text, txtAcc.Text, txtPass.Text, txtRoll.Text};
         }
     }
 }

@@ -29,7 +29,7 @@ namespace management
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataUserGridView1 = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -37,23 +37,27 @@ namespace management
             this.button2 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtAcc = new System.Windows.Forms.TextBox();
+            this.txtPass = new System.Windows.Forms.TextBox();
+            this.txtName = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.lbelSearch = new System.Windows.Forms.TextBox();
+            this.txtRoll = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.dataUserGridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dataUserGridView1
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(224, 181);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(573, 266);
-            this.dataGridView1.TabIndex = 0;
+            this.dataUserGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataUserGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataUserGridView1.Location = new System.Drawing.Point(224, 181);
+            this.dataUserGridView1.Name = "dataUserGridView1";
+            this.dataUserGridView1.RowHeadersWidth = 51;
+            this.dataUserGridView1.RowTemplate.Height = 24;
+            this.dataUserGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataUserGridView1.Size = new System.Drawing.Size(573, 266);
+            this.dataUserGridView1.TabIndex = 0;
+            this.dataUserGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.onClickCell);
             // 
             // label1
             // 
@@ -119,26 +123,26 @@ namespace management
             this.button5.Text = "Xoa";
             this.button5.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // txtAcc
             // 
-            this.textBox1.Location = new System.Drawing.Point(330, 22);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(196, 22);
-            this.textBox1.TabIndex = 9;
+            this.txtAcc.Location = new System.Drawing.Point(330, 22);
+            this.txtAcc.Name = "txtAcc";
+            this.txtAcc.Size = new System.Drawing.Size(196, 22);
+            this.txtAcc.TabIndex = 9;
             // 
-            // textBox2
+            // txtPass
             // 
-            this.textBox2.Location = new System.Drawing.Point(330, 65);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(196, 22);
-            this.textBox2.TabIndex = 10;
+            this.txtPass.Location = new System.Drawing.Point(330, 65);
+            this.txtPass.Name = "txtPass";
+            this.txtPass.Size = new System.Drawing.Size(196, 22);
+            this.txtPass.TabIndex = 10;
             // 
-            // textBox3
+            // txtName
             // 
-            this.textBox3.Location = new System.Drawing.Point(330, 99);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(196, 22);
-            this.textBox3.TabIndex = 11;
+            this.txtName.Location = new System.Drawing.Point(330, 99);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(196, 22);
+            this.txtName.TabIndex = 11;
             // 
             // label4
             // 
@@ -149,23 +153,31 @@ namespace management
             this.label4.TabIndex = 12;
             this.label4.Text = "Tim kiem";
             // 
-            // textBox4
+            // lbelSearch
             // 
-            this.textBox4.Location = new System.Drawing.Point(330, 142);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(330, 22);
-            this.textBox4.TabIndex = 13;
+            this.lbelSearch.Location = new System.Drawing.Point(330, 142);
+            this.lbelSearch.Name = "lbelSearch";
+            this.lbelSearch.Size = new System.Drawing.Size(330, 22);
+            this.lbelSearch.TabIndex = 13;
+            // 
+            // txtRoll
+            // 
+            this.txtRoll.Location = new System.Drawing.Point(592, 65);
+            this.txtRoll.Name = "txtRoll";
+            this.txtRoll.Size = new System.Drawing.Size(175, 22);
+            this.txtRoll.TabIndex = 14;
             // 
             // Staffs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.txtRoll);
+            this.Controls.Add(this.lbelSearch);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtName);
+            this.Controls.Add(this.txtPass);
+            this.Controls.Add(this.txtAcc);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button2);
@@ -173,10 +185,10 @@ namespace management
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dataUserGridView1);
             this.Name = "Staffs";
             this.Text = "Staffs";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataUserGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -184,7 +196,7 @@ namespace management
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataUserGridView1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -192,10 +204,11 @@ namespace management
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtAcc;
+        private System.Windows.Forms.TextBox txtPass;
+        private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox lbelSearch;
+        private System.Windows.Forms.TextBox txtRoll;
     }
 }

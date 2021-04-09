@@ -117,27 +117,35 @@ namespace management
             //Console.WriteLine(testCmd);
            MessageErr(ExecuteNon(query)) ;
         }
-        public void Update(String tableName, String tableValueUpdate, String tableID)
+        public void Update(String tableName, String afterSet, String whereId)
         {
-            String query = "UPDATE `" + tableName + "` SET" + tableValueUpdate + " WHERE " + tableID;
+            String query = "UPDATE " + tableName + " SET " + afterSet + " WHERE " + whereId;
             MessageErr(ExecuteNon(query));
+            //Console.WriteLine(query);
         }
         //"DELETE FROM `foods` WHERE `foods`.`FOODID` = 6"
-        public void Delete(String tableName, String tableId, String deleteId)
+        public void Delete(String tableName, String columnName, String deleteId)
         {
-            string query = "DELETE FROM `" + tableName + "` WHERE `"+ tableName+"`."+tableId+" = " + deleteId;
+            string query = "DELETE FROM " + tableName + " WHERE "+columnName+" = '" + deleteId +"'";
             //testCmd = "DELETE FROM `" + tableName + "` WHERE "+ tableAttr + " = " + deleteId;
             Console.WriteLine(testCmd);
             MessageErr(ExecuteNon(query));
         }
-        public String SelectAll(String tableName)
-        {
-            string query = "SELECT * FROM " + tableName;
-            return query;
-        }
+        //public String SelectAll(String tableName)
+        //{
+        //    string query = "SELECT * FROM " + tableName;
+        //    return query;
+        //}
         public String SelectColumn(String columnName, String afterFrom)
         {
-            string query = "SELECT " + columnName + " From " + afterFrom;
+            String query = "";
+            if (columnName != "") {
+                query = "SELECT " + columnName + " From " + afterFrom;
+            } else
+            {
+                query = "SELECT * FROM " + afterFrom;
+            }
+            
             return query;
         }
         public String selectWhereLike(String beforeWhere, String columnName, String whereValue)
@@ -187,6 +195,7 @@ namespace management
         {
             apt = new SqlDataAdapter(selectString, cnn);
             dt = new DataTable();
+            //fill to datatable
             apt.Fill(dt);
         }
         //get food object
