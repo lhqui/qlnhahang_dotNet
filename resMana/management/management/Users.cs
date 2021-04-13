@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+using System.Runtime.Caching;
 
 namespace management
 {
@@ -44,6 +45,16 @@ namespace management
             int a = db.ExecuteNon(query);
             if ( a != 0)
             {
+                SqlDataReader data = db.ExecuteReader(query);
+                while (data.Read())
+                {
+                   // db.staffId = data["staffid"].ToString();
+                    if( data["rollid"].ToString() == "1" )
+                    {
+                        CacheStore cache = new CacheStore();
+                        cache.storeItemInCache(data["rollid"].ToString());
+                    } 
+                }
                 return allow = true;
             }
             return allow;

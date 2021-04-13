@@ -16,6 +16,8 @@ namespace management
         public String testCmd = "";
         SqlDataAdapter apt;
         public DataTable dt;
+        public String staffId = "";
+        public Boolean isAdmin = false;
         
         
         public DBConnect()
@@ -174,7 +176,7 @@ namespace management
             converted = " " + onConvert + " ";
             return converted;
         }
-        public String convertStringValue(String[] arr)
+        public String StringValue(String[] arr)
         {
             string onConvert = "";
             string converted = "";
@@ -198,7 +200,7 @@ namespace management
             //fill to datatable
             apt.Fill(dt);
         }
-        //get food object
+       
       
 
 

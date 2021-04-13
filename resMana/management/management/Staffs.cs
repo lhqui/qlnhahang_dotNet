@@ -17,7 +17,7 @@ namespace management
         public Staffs()
         {
             InitializeComponent();
-            showData();
+            //showData();
         }
         public void showData()
         {
@@ -55,6 +55,22 @@ namespace management
         private void insertUser()
         {
             String[] arr = {txtName.Text, txtAcc.Text, txtPass.Text, txtRoll.Text};
+        }
+
+        private void btnClick_Change(object sender, EventArgs e)
+        {
+            ChangePass cp = new ChangePass();
+            cp.Parent = Parent;
+            cp.StartPosition = FormStartPosition.CenterParent;
+            cp.ShowDialog();
+        }
+
+        private void btnClick_Regis(object sender, EventArgs e)
+        {
+            ShiftRegis sr = new ShiftRegis();
+            sr.Parent = Parent;
+            sr.StartPosition = FormStartPosition.CenterParent;
+            sr.ShowDialog();
         }
     }
 }

@@ -49,7 +49,7 @@ namespace management
                 if(checkNum(txtPrice.Text) == true)
                 {
                     DBConnect dbc = new DBConnect();
-                    dbc.Insert("foods", dbc.convertStringValue(tableValues));
+                    dbc.Insert("foods", dbc.StringValue(tableValues));
                     if (dbc.msg != "")
                     {
                         MessageBox.Show(dbc.msg);

@@ -30,3 +30,5 @@ D:\A_nam4\DotNET\PjDotNet\resMana\management\management\bin\Debug\System.Runtime
 D:\A_nam4\DotNET\PjDotNet\resMana\management\management\bin\Debug\MySql.Data.xml
 D:\A_nam4\DotNET\PjDotNet\resMana\management\management\obj\Debug\management.exe.config
 D:\A_nam4\DotNET\PjDotNet\resMana\management\management\obj\Debug\management.csproj.CopyComplete
+D:\A_nam4\DotNET\PjDotNet\resMana\management\management\obj\Debug\management.ChangePass.resources
+D:\A_nam4\DotNET\PjDotNet\resMana\management\management\obj\Debug\management.ShiftRegis.resources
