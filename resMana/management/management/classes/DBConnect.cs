@@ -26,7 +26,8 @@ namespace management
         }
         private void Initialize()
         {
-            connectionString = "server=DESKTOP-2JU4MVK\\SQLEXPRESS;database=nhahang; integrated security = true";
+            //connectionString = "server=DESKTOP-2JU4MVK\\SQLEXPRESS;database=nhahang; integrated security = true";
+            connectionString = "server=" +Config.get("server") + ";database="+Config.get("db")+";integrated security="+Config.get("is");
             cnn = new SqlConnection(connectionString);
         }
         private bool OpenConnection()
