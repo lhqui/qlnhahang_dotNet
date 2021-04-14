@@ -152,7 +152,7 @@ namespace management
         }
         public String selectWhereLike(String beforeWhere, String columnName, String whereValue)
         {
-            String query = beforeWhere + " WHERE " + columnName + " LIKE '%" + whereValue + "%'"; 
+            String query = beforeWhere + " WHERE " + columnName + " LIKE N'%" + whereValue + "%'"; 
             return query;
         }
 

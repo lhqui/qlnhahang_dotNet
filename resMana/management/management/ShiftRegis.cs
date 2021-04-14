@@ -12,6 +12,8 @@ namespace management
 {
     public partial class ShiftRegis : Form
     {
+        LinkedList<int> workHours = new LinkedList<int>();
+        LinkedList<int> listEndtime = new LinkedList<int>();
         public ShiftRegis()
         {
             InitializeComponent();
@@ -24,13 +26,15 @@ namespace management
             //CacheStore cache = new CacheStore();
             String valueId = CacheStore.GetItemsFromCache();
             //MessageBox.Show(db.staffId);
+            string query = workDatepicker.Value.Date + ";" + listStart.GetItemText(listStart.SelectedItem) + ";" 
+                + listEnd.GetItemText(listEnd.SelectedItem);
             if (valueId == "1")
             {
-
-                MessageBox.Show("u are admin");
+                MessageBox.Show(query);
+                //MessageBox.Show("u are admin");
             }
             else {
-                MessageBox.Show(valueId);
+                MessageBox.Show("Bạn Không đủ quyền");
                 
             }
            // String query = db.Insert("shift", "");
@@ -40,17 +44,30 @@ namespace management
         private void btnClick_Starttime(object sender, EventArgs e)
         {
             int currentHour = Int32.Parse(DateTime.Now.ToString("HH"));
-            int Starthour = 8;
+           // int Starthour = 8;
             // 15 tieng co the lam trong 21 tieng
-            LinkedList<int> workHours = new LinkedList<int>();
-            for(int i=0; i<=21; i++) {
-                if(currentHour < Starthour )
+            
+            if (workDatepicker.Value.Date == DateTime.Now.Date) {
+               // workHours.Clear();
+                //listStart.Items.Clear();
+                for (int i = 8; i <= 21; i++)
                 {
-                    //Console.WriteLine(Starthour);
-                    workHours.AddLast(Starthour);
+                    if (currentHour < i)
+                    {
+                        //Console.WriteLine(Starthour);
+                        workHours.AddLast(i);
+                    }
+
+                  //  Starthour++;
+
                 }
-             
-                Starthour++;
+            } else
+            {
+                //listStart.Items.Clear();
+                for (int i=8; i <=21; i++)
+                {
+                    workHours.AddLast(i);
+                }
             }
             foreach(int num in workHours) {
                 listStart.Items.Add(num);
@@ -62,7 +79,7 @@ namespace management
         private void btnClick_EndShift(object sender, EventArgs e)
         {
             String selectStartTime = "";
-            LinkedList<int> listEndtime = new LinkedList<int>();
+            
             if ( listStart.Items.Count > 0)
             {
                 // lay value cua starttime
@@ -91,6 +108,14 @@ namespace management
         private void btnClick_Cancel(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnClear_listbox(object sender, EventArgs e)
+        {
+            workHours.Clear();
+            listEndtime.Clear();
+            listStart.Items.Clear();
+            listEnd.Items.Clear();
         }
     }
 }

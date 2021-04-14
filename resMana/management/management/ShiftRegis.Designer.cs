@@ -33,7 +33,7 @@ namespace management
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
+            this.workDatepicker = new System.Windows.Forms.DateTimePicker();
             this.listStart = new System.Windows.Forms.ListBox();
             this.listEnd = new System.Windows.Forms.ListBox();
             this.button2 = new System.Windows.Forms.Button();
@@ -76,15 +76,17 @@ namespace management
             this.label3.TabIndex = 6;
             this.label3.Text = "Ngày làm";
             // 
-            // dateTimePicker3
+            // workDatepicker
             // 
-            this.dateTimePicker3.CustomFormat = " dd/MM/yy";
-            this.dateTimePicker3.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker3.Location = new System.Drawing.Point(128, 35);
-            this.dateTimePicker3.Name = "dateTimePicker3";
-            this.dateTimePicker3.Size = new System.Drawing.Size(200, 22);
-            this.dateTimePicker3.TabIndex = 7;
-            this.dateTimePicker3.Value = new System.DateTime(2021, 4, 12, 10, 38, 29, 0);
+            this.workDatepicker.CustomFormat = " dd/MM/yy";
+            this.workDatepicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.workDatepicker.Location = new System.Drawing.Point(128, 35);
+            this.workDatepicker.MinDate = new System.DateTime(2021, 4, 13, 0, 0, 0, 0);
+            this.workDatepicker.Name = "workDatepicker";
+            this.workDatepicker.Size = new System.Drawing.Size(200, 22);
+            this.workDatepicker.TabIndex = 7;
+            this.workDatepicker.Value = new System.DateTime(2021, 4, 13, 0, 0, 0, 0);
+            this.workDatepicker.ValueChanged += new System.EventHandler(this.btnClear_listbox);
             // 
             // listStart
             // 
@@ -124,7 +126,7 @@ namespace management
             this.Controls.Add(this.button2);
             this.Controls.Add(this.listEnd);
             this.Controls.Add(this.listStart);
-            this.Controls.Add(this.dateTimePicker3);
+            this.Controls.Add(this.workDatepicker);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -141,7 +143,7 @@ namespace management
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DateTimePicker dateTimePicker3;
+        private System.Windows.Forms.DateTimePicker workDatepicker;
         private System.Windows.Forms.ListBox listStart;
         private System.Windows.Forms.ListBox listEnd;
         private System.Windows.Forms.Button button2;

@@ -8,7 +8,7 @@ namespace management
 {
     class CacheStore
     {
-        private static string _key = "foo";
+        private static string _key = "isAdmin";
         private static readonly MemoryCache _cache = MemoryCache.Default;
 
 
@@ -26,15 +26,15 @@ namespace management
         {
               return _cache.Get(_key) as String;
         }
-        public static void RemoveItemsFromCache(String item)
+        public static void RemoveItemsFromCache()
         {
-            if (string.IsNullOrEmpty(item))
+            if (string.IsNullOrEmpty(_key))
             {
                 _cache.Dispose();
             }
             else
             {
-                _cache.Remove(item);
+                _cache.Remove(_key);
             }
         }
     }

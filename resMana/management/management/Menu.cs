@@ -28,13 +28,10 @@ namespace management
         private void btnExit(object sender, EventArgs e)
         {
             DBConnect db = new DBConnect();
-            if (db.isAdmin == true && db.staffId != "") {
-                db.isAdmin = false;
-                db.staffId = "";
-            } else
-            {
-                db.staffId = "";
-            }
+            String valueId = CacheStore.GetItemsFromCache();
+            if (valueId == "1") {
+                CacheStore.RemoveItemsFromCache();
+            } 
             this.Hide();
             Login lg = new Login();
             lg.ShowDialog();
