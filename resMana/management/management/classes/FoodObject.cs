@@ -10,31 +10,33 @@ namespace management
     class FoodObject
     {
         DBConnect db = new DBConnect();
-   //     public String foodid { get { return foodid; } set { foodid = value; } }
-        public String foodid { get; set; }
-        public String foodName { get; set; }
-        public String foodPrice { get; set; }
-        public String foodKind { get; set; }
+        //     public String foodid { get { return foodid; } set { foodid = value; } }
+        //public String foodid { get; set; }
+        //public String foodName { get; set; }
+        //public String foodPrice { get; set; }
+        //public String foodKind { get; set; }
+        Dictionary<string, string> food = new Dictionary<string, string>();
 
  
-        public FoodObject getFoodInfor(string foodid)
+        public FoodObject(string foodid)
         {
-            FoodObject fdo = new FoodObject();
+
             String columns = "foodid, foodname, foodprice, kindname";
             String afterFrom = "foods inner join foodkind on foods.foodkind_id = foodkind.foodkind_id";
-            String query = db.selectWhereLike(db.SelectColumn(columns, afterFrom), "foodid", foodid);
-            
+            String query = db.SelectWhereLike(db.SelectColumn(columns, afterFrom), "foodid", foodid);
+            //db.ExecuteReader(query);
             SqlDataReader dtRead = db.ExecuteReader(query);
-                while (dtRead.Read())
-                {
-                    fdo.foodid = dtRead["FOODID"].ToString();
-                    fdo.foodName = dtRead["FOODNAME"].ToString();
-                    fdo.foodKind = dtRead["kindname"].ToString();
-                    fdo.foodPrice = dtRead["FOODPRICE"].ToString();
-                }
-            dtRead.Close();
-              
-            return fdo;
+            while (dtRead.Read())
+            {
+                food.Add("foodname", dtRead["FOODNAME"].ToString());
+                food.Add("kindname", dtRead["kindname"].ToString());
+                food.Add("foodprice", dtRead["FOODPRICE"].ToString());
+                food.Add("foodid", dtRead["foodid"].ToString());
+            }
+        }
+        public String GetValueFromDic(String keyname)
+        {
+            return food[keyname] as String;
         }
 
 

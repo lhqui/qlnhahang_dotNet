@@ -31,7 +31,7 @@ namespace management
         {
             this.txtUser = new System.Windows.Forms.TextBox();
             this.txtPass = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.bnLogin = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -51,17 +51,17 @@ namespace management
             this.txtPass.Name = "txtPass";
             this.txtPass.Size = new System.Drawing.Size(189, 33);
             this.txtPass.TabIndex = 1;
-            this.txtPass.MouseEnter += new System.EventHandler(this.btnHide);
+            this.txtPass.TextChanged += new System.EventHandler(this.btnHide);
             // 
-            // button1
+            // bnLogin
             // 
-            this.button1.Location = new System.Drawing.Point(371, 58);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(111, 87);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Login";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.btnLogin);
+            this.bnLogin.Location = new System.Drawing.Point(371, 58);
+            this.bnLogin.Name = "bnLogin";
+            this.bnLogin.Size = new System.Drawing.Size(111, 87);
+            this.bnLogin.TabIndex = 2;
+            this.bnLogin.Text = "Login";
+            this.bnLogin.UseVisualStyleBackColor = true;
+            this.bnLogin.Click += new System.EventHandler(this.btnLogin);
             // 
             // label1
             // 
@@ -83,16 +83,19 @@ namespace management
             // 
             // Login
             // 
+            this.AcceptButton = this.bnLogin;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(525, 210);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.bnLogin);
             this.Controls.Add(this.txtPass);
             this.Controls.Add(this.txtUser);
             this.Name = "Login";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dang Nhap";
+            this.TextChanged += new System.EventHandler(this.btnHide);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -102,7 +105,7 @@ namespace management
 
         private System.Windows.Forms.TextBox txtUser;
         private System.Windows.Forms.TextBox txtPass;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button bnLogin;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
     }

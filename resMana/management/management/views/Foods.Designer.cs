@@ -64,7 +64,7 @@ namespace management
             this.button1.TabIndex = 0;
             this.button1.Text = "Thêm";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.btnAdd);
+            this.button1.Click += new System.EventHandler(this.AddFoodToDb);
             // 
             // button2
             // 
@@ -74,7 +74,7 @@ namespace management
             this.button2.TabIndex = 1;
             this.button2.Text = "Xóa";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.btnDelete);
+            this.button2.Click += new System.EventHandler(this.DeleteFood);
             // 
             // foodDataGridView1
             // 
@@ -91,8 +91,8 @@ namespace management
             this.foodDataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.foodDataGridView1.Size = new System.Drawing.Size(654, 312);
             this.foodDataGridView1.TabIndex = 2;
-            this.foodDataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.rowSelected);
-            this.foodDataGridView1.DoubleClick += new System.EventHandler(this.btnDouble_click);
+            this.foodDataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GetFoodInCell);
+            this.foodDataGridView1.DoubleClick += new System.EventHandler(this.GetFoodInfor);
             // 
             // button3
             // 
@@ -102,14 +102,15 @@ namespace management
             this.button3.TabIndex = 3;
             this.button3.Text = "Trở lại";
             this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.btnBack);
+            this.button3.Click += new System.EventHandler(this.ExistToMenu);
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(338, 41);
+            this.txtName.Location = new System.Drawing.Point(403, 41);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(456, 22);
             this.txtName.TabIndex = 4;
+            this.txtName.TextChanged += new System.EventHandler(this.CheckIsString);
             // 
             // label1
             // 
@@ -137,14 +138,16 @@ namespace management
             this.button4.TabIndex = 8;
             this.button4.Text = "Clear";
             this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.btnClear);
+            this.button4.Click += new System.EventHandler(this.ClearAllText);
             // 
             // txtPrice
             // 
-            this.txtPrice.Location = new System.Drawing.Point(338, 117);
+            this.txtPrice.Location = new System.Drawing.Point(403, 119);
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(456, 22);
             this.txtPrice.TabIndex = 9;
+            this.txtPrice.Text = "0";
+            this.txtPrice.TextChanged += new System.EventHandler(this.CheckIsNumber);
             // 
             // label3
             // 
@@ -162,7 +165,7 @@ namespace management
             this.lbSearch.Name = "lbSearch";
             this.lbSearch.Size = new System.Drawing.Size(64, 17);
             this.lbSearch.TabIndex = 11;
-            this.lbSearch.Text = "Tim kiem";
+            this.lbSearch.Text = "Tìm kiếm";
             // 
             // txtSearch
             // 
@@ -170,7 +173,7 @@ namespace management
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(456, 22);
             this.txtSearch.TabIndex = 12;
-            this.txtSearch.TextChanged += new System.EventHandler(this.btnOnchange);
+            this.txtSearch.TextChanged += new System.EventHandler(this.OnSearchchange);
             // 
             // button5
             // 
@@ -186,7 +189,7 @@ namespace management
             // 
             this.cbKind.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbKind.FormattingEnabled = true;
-            this.cbKind.Location = new System.Drawing.Point(338, 76);
+            this.cbKind.Location = new System.Drawing.Point(403, 76);
             this.cbKind.Name = "cbKind";
             this.cbKind.Size = new System.Drawing.Size(170, 24);
             this.cbKind.TabIndex = 14;
@@ -231,7 +234,7 @@ namespace management
             this.btnEdit.TabIndex = 16;
             this.btnEdit.Text = "Sửa";
             this.btnEdit.UseVisualStyleBackColor = true;
-            this.btnEdit.Click += new System.EventHandler(this.btnClick_Edit);
+            this.btnEdit.Click += new System.EventHandler(this.EditFood);
             // 
             // Foods
             // 

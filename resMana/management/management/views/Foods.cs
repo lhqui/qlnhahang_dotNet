@@ -14,91 +14,79 @@ namespace management
     public partial class Foods : Form
     {
         private string foodid = "";
-        FoodObject fo = new FoodObject();
-        public Foods()
+        DBConnect db = new DBConnect();
+        private Users user;
+        public Foods(Users user)
         {
             InitializeComponent();
-            showdata();
-            getFoodkind();
+            this.user = user;
+            ShowAllFood();
+            GetFoodKind();
         }
 
-        private void btnBack(object sender, EventArgs e)
+        private int GetIndexlistBox()
         {
-            this.Hide();
-            Menu mn = new Menu();
-            mn.ShowDialog();
-            this.Close();
-        }
-        public int checkindexFoodKind(int index)
-        {
-            int indexReturn = 5;
-            if (index == 1)
+            int lstIndex = 0;
+            if (cbKind.SelectedIndex == -1)
             {
-                return indexReturn=6;
-            } 
-            return indexReturn;
-        }
-        private void btnAdd(object sender, EventArgs e)
-        {
-            //create string for attr and values
-            int findindex = checkindexFoodKind(cbKind.SelectedIndex); 
-            string[] tableValues = { txtName.Text, txtPrice.Text, findindex.ToString() };
-            // check conditions
-            if(txtName.Text != "" && cbKind.Text != "" )
+                MessageBox.Show("Hãy chọn loại");
+            }
+            else
             {
-                if(checkNum(txtPrice.Text) == true)
-                {
-                    DBConnect dbc = new DBConnect();
-                    dbc.Insert("foods", dbc.StringValue(tableValues));
-                    if (dbc.msg != "")
-                    {
-                        MessageBox.Show(dbc.msg);
-                    }
-                } else
-                {
-                    MessageBox.Show(" Giá phải là số!");
-                }
-           
-                //MessageBox.Show(dbc.convertStringValue(tableValues));
-              
+                lstIndex = cbKind.SelectedIndex + 1;
+            }
+            return lstIndex;
+        }
 
-                // use crtl k + c to comment all or ctrl k +u
-
-                //clear data input
-                Clear();
-                showdata();
+ 
+        public void Message(int count)
+        {
+            if (count != 0)
+            {
+                MessageBox.Show("Thành Công");
             } else
             {
+                MessageBox.Show("Thất Bại");
+            }
+        }
+        private Boolean IsExistInDb(String foodName)
+        {
+            DBConnect db = new DBConnect();
+            String query = "Select * from foods where foodname='" + foodName + "'";
+            db.Query(query);
+            if(db.count > 0)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        private void CheckIsNumber(object sender, EventArgs e)
+        {
+            if (!int.TryParse(txtPrice.Text, out _))
+            {
+                MessageBox.Show("Giá phải là số");
                 txtPrice.Text = "";
             }
-
-
         }
 
-
-
-        private void rowSelected(object sender, DataGridViewCellEventArgs e)
+        private void CheckIsString(object sender, EventArgs e)
         {
-            //if (foodDataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
-            //{
-            //    foodDataGridView1.CurrentRow.Selected = true;
-            //}
-            if (e.RowIndex >=0 )
+            if (int.TryParse(txtName.Text, out _))
             {
-                DataGridViewRow row = this.foodDataGridView1.Rows[e.RowIndex];
-                getIdfood(row.Cells["foodid"].Value.ToString());
-                txtName.Text = row.Cells["FoodName"].Value.ToString();
-                cbKind.Text = row.Cells["kindname"].Value.ToString();
-                txtPrice.Text = row.Cells["FoodPrice"].Value.ToString();
-
-                
+                MessageBox.Show("Tên không bao gồm số");
+                txtName.Text = "";
             }
         }
-        private string getIdfood(String selectedId)
+
+        private void GetFoodIdInRow()
         {
-            return foodid=selectedId;
+            int n = foodDataGridView1.CurrentCell.RowIndex;
+            DataGridViewRow row = this.foodDataGridView1.Rows[n];
+            this.foodid = row.Cells["foodid"].Value.ToString();
         }
-        public void showdata()
+ 
+        public void ShowAllFood()
         {
             DBConnect db = new DBConnect();
             String query = "select foodid, foodname , foodprice ,kindname from  foods inner join foodkind  on foods.foodkind_id = foodkind.foodkind_id";
@@ -108,99 +96,37 @@ namespace management
             foodDataGridView1.Columns[1].HeaderCell.Value = "Tên món";
             foodDataGridView1.Columns[2].HeaderCell.Value = "Giá";
             foodDataGridView1.Columns[3].HeaderCell.Value = "Loại";
-
         }
 
-        private void btnClear(object sender, EventArgs e)
-        {
-            Clear();
-        }
         private void Clear()
         {
             txtName.Text = "";
-            txtPrice.Text = "";
+            txtPrice.Text = "0";
             cbKind.SelectedItem = null;
         }
 
-        //private void FoodsLoad(object sender, EventArgs e)
-        //{
-        //    // TODO: This line of code loads data into the 'nhahangDataSet.foodkind' table. You can move, or remove it, as needed.
-        //    //this.foodkindTableAdapter.Fill(this.nhahangDataSet.foodkind);
-        //    showdata();
-        //}
+   
 
         private void Refrs(object sender, EventArgs e)
         {
-            showdata();
+            ShowAllFood();
         }
-        //"DELETE FROM `foods` WHERE `foods`.`FOODID` = 6"
-        private void btnDelete(object sender, EventArgs e)
-        {
-            DBConnect db = new DBConnect();
-            DialogResult diag = MessageBox.Show("Bạn  có muốn xóa","Xóa", MessageBoxButtons.YesNo);
-            if (diag == DialogResult.Yes && foodid!= "")
-            {
-                db.Delete("foods", "FOODID", this.foodid);
-                //MessageBox.Show(db.testCmd);
 
-                Clear();
-                showdata();
-            } else
-            {
-                Clear();
-            }
-
-        }
-        private void btnOnchange(object sender, EventArgs e)
-        {
-            if (txtSearch.TextLength > 0)
-            {
-                lbSearch.Text = "Đang tìm Kiếm ...";
-                Search(txtSearch.Text);
-                return;
-            } else 
-            {
-                lbSearch.Text = "Tìm Kiếm";
-                showdata();
-            }
-        }
         private void Search(String searchString)
         {
             DBConnect db = new DBConnect();
             //select foodid as ID, foodname , foodprice ,kindname from  foods inner join foodkind  on foods.foodkind_id = foodkind.foodkind_id
             String columns = "foodid, foodname, foodprice, kindname";
             String afterFrom = "foods inner join foodkind on foods.foodkind_id = foodkind.foodkind_id";
-            String query = db.selectWhereLike(db.SelectColumn(columns,afterFrom), "foodname", searchString);
+            String query = db.SelectWhereLike(db.SelectColumn(columns,afterFrom), "foodname", searchString);
             db.ShowDt(query);
             foodDataGridView1.DataSource = db.dt;
         }
-
-        private bool checkNum(String checkValue)
-        {
-            int parValue;
-            if (!int.TryParse(checkValue, out parValue))
-            {
-               // MessageBox.Show(" giá phải là số!");
-                return false;
-            } else
-            {
-                return true;
-            }
-        }
-
-        private void btnDouble_click(object sender, EventArgs e)
-        {
-            FoodObject x = new FoodObject();
-            x = fo.getFoodInfor(this.foodid);
-            MessageBox.Show( " Stt: "+ x.foodid +"\n Tên thực phẩm: " +x.foodName+ "\n Loại: " + x.foodKind + "\n Giá: " 
-                + x.foodPrice + " vnđ");
-        }
-
-        private void getFoodkind()
+        private void GetFoodKind()
         {
             DBConnect db = new DBConnect();
             String query = db.SelectColumn("","foodkind");
-            SqlDataAdapter adap = db.fillAdapter(query);
+            SqlDataAdapter adap = db.FillAdapter(query);
             DataSet dt = new DataSet();
             adap.Fill(dt);
             if(dt.Tables[0].Rows.Count>0)
@@ -214,36 +140,130 @@ namespace management
             }
             
         }
- 
-
-        private void btnClick_Edit(object sender, EventArgs e)
+        private void AddFoodToDb(object sender, EventArgs e)
         {
-            DBConnect db = new DBConnect();
-            FoodObject x = new FoodObject();
-            x = fo.getFoodInfor(this.foodid);
-            if (x.foodName != txtName.Text || x.foodPrice !=txtPrice.Text || x.foodKind != cbKind.Text )
+            //create string for attr and values
+            int indexKind = GetIndexlistBox();
+            string[] tableValues = { txtName.Text, txtPrice.Text, indexKind.ToString() };
+            String query = "Insert into foods values" + db.StringValue(tableValues);
+            // check conditions
+            if (txtName.Text != "" && cbKind.Text != "")
             {
-                if (checkNum(txtPrice.Text) == true) {
-                    int findindex = checkindexFoodKind(cbKind.SelectedIndex);
-                    String afterSet = "foodname=N'" + txtName.Text + "', foodprice='" + txtPrice.Text + "'," 
-                        + " foodkind_id='" +findindex+"'";
-                    String afterwhere = "foodid = " + this.foodid;
-                    db.Update("foods",afterSet,afterwhere);
-                    showdata();
-                    //MessageBox.Show("difference");
-                    if (db.msg != "")
-                    {
-                        MessageBox.Show(db.msg);
-                    }
-                } else
+                if (IsExistInDb(txtName.Text) == true)
                 {
-                    MessageBox.Show("Giá phải là số");
+                    MessageBox.Show("Món ăn đã tồn tại ");
                 }
+                else
+                {
+                    db.ExecuteNonQuery(query);
+                    Message(db.count);
+                    ShowAllFood();
+                }
+                //clear data input
+                Clear();
                 
-            } else
+            }
+            else
+            {
+                txtPrice.Text = "";
+            }
+
+        }
+
+        private void EditFood(object sender, EventArgs e)
+        {
+            FoodObject x = new FoodObject(this.foodid);
+
+
+            if (x.GetValueFromDic("foodname") != txtName.Text || x.GetValueFromDic("foodkind") != txtPrice.Text || x.GetValueFromDic("foodkind") != cbKind.Text)
+            {
+
+                int indexKind = GetIndexlistBox();
+                String afterSet = "foodname=N'" + txtName.Text + "', foodprice='" + txtPrice.Text + "',"
+                    + " foodkind_id='" + indexKind.ToString() + "'";
+                String afterWhere = "foodid = " + this.foodid;
+                String query = "update foods set " + afterSet + " where " + afterWhere;
+                db.ExecuteNonQuery(query);
+                Message(db.count);
+                ShowAllFood();
+                //MessageBox.Show("difference");
+
+            }
+            else
             {
                 MessageBox.Show("Thông tin chưa thay đổi");
             }
+        }
+
+        private void DeleteFood(object sender, EventArgs e)
+        {
+            GetFoodIdInRow();
+            DialogResult diag = MessageBox.Show("Bạn  có muốn xóa", "Xóa", MessageBoxButtons.YesNo);
+            String query = "delete from foods where foodid=" + this.foodid;
+            if (diag == DialogResult.Yes && foodid != "")
+            {
+                db.ExecuteNonQuery(query);
+                Message(db.count);
+                Clear();
+                ShowAllFood();
+            }
+            else
+            {
+                Clear();
+            }
+
+        }
+
+        private void OnSearchchange(object sender, EventArgs e)
+        {
+            if (txtSearch.TextLength > 0)
+            {
+                lbSearch.Text = "Đang tìm Kiếm ...";
+                Search(txtSearch.Text);
+                return;
+            }
+            else
+            {
+                lbSearch.Text = "Tìm Kiếm";
+                ShowAllFood();
+            }
+        }
+
+        private void GetFoodInCell(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = this.foodDataGridView1.Rows[e.RowIndex];
+                this.foodid = row.Cells["foodid"].Value.ToString();
+                txtName.Text = row.Cells["FoodName"].Value.ToString();
+                cbKind.Text = row.Cells["kindname"].Value.ToString();
+                txtPrice.Text = row.Cells["FoodPrice"].Value.ToString();
+            }
+        }
+
+        private void GetFoodInfor(object sender, EventArgs e)
+        {
+            FoodObject x = new FoodObject(this.foodid);
+
+            MessageBox.Show(" Stt: " + x.GetValueFromDic("foodid")
+                + "\n Tên thực phẩm: " + x.GetValueFromDic("foodname")
+                + "\n Loại: " + x.GetValueFromDic("foodkind")
+                + "\n Giá: " + x.GetValueFromDic("foodprice") + " vnđ");
+        }
+
+        private void ClearAllText(object sender, EventArgs e)
+        {
+            Clear();
+        }
+
+        private void ExistToMenu(object sender, EventArgs e)
+        {
+            this.Hide();
+            Menu mn = new Menu(this.user);
+
+            mn.StartPosition = FormStartPosition.CenterParent;
+            mn.ShowDialog();
+            this.Close();
         }
     }
 }

@@ -12,14 +12,16 @@ namespace management
     {
         private SqlConnection cnn;
         private String connectionString = "";
-        public string msg = "";
-        public String testCmd = "";
+
+        SqlDataReader reader;
         SqlDataAdapter apt;
         public DataTable dt;
-        public String staffId = "";
-        public Boolean isAdmin = false;
-        
-        
+
+        public List<Dictionary<string, string>> result = new List<Dictionary<string, string>>();
+  
+        public int count;
+
+
         public DBConnect()
         {
             Initialize();
@@ -32,6 +34,7 @@ namespace management
         }
         private bool OpenConnection()
         {
+            
             try
             {
                 cnn.Open();
@@ -62,38 +65,8 @@ namespace management
                 return false;
             }
         }
-        public int ExecuteNon(String query)
-        {
-            int count = 0;
-            SqlCommand cmd = new SqlCommand(query, cnn);
-            //int count=1;
-            if (this.OpenConnection() == true)
-            {
-                count = cmd.ExecuteNonQuery();
-                //SqlDataReader dtread = cmd.ExecuteReader();
-                //if (dtread.HasRows)
-                //{
-                //    while (dtread.Read())
-                //    {
-                //        count++;
-                //    }
-                //}
-                this.CloseConnection();
-            }
-            else
-            {
-                Console.WriteLine("conect error");
-            }
-            return count;
-        }
-        public SqlDataReader ExecuteReader(String query)
-        {
-            cnn.Open();
-            SqlCommand cmd = new SqlCommand(query, cnn);
-            SqlDataReader reader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
-            return reader;
-        }
-        public SqlDataAdapter fillAdapter( String query)
+
+        public SqlDataAdapter FillAdapter( String query)
         {
             cnn.Open();
             //SqlCommand cmd = new SqlCommand(query, cnn);
@@ -101,44 +74,7 @@ namespace management
             //DataSet dt = new DataSet();
             return adap;
         }
-        
-        public void MessageErr(int a)
-        {
-            if(a == 0)
-            {
-                this.msg = "Fail";
-            } else
-            {  
-                this.msg = "Success";
-            }
-        }
- 
 
-        public void Insert(String tableName, String tableValue )
-        {
-            String query = "INSERT INTO " + tableName + " VALUES " + tableValue + ";";  
-            //Console.WriteLine(testCmd);
-           MessageErr(ExecuteNon(query)) ;
-        }
-        public void Update(String tableName, String afterSet, String whereId)
-        {
-            String query = "UPDATE " + tableName + " SET " + afterSet + " WHERE " + whereId;
-            MessageErr(ExecuteNon(query));
-            //Console.WriteLine(query);
-        }
-        //"DELETE FROM `foods` WHERE `foods`.`FOODID` = 6"
-        public void Delete(String tableName, String columnName, String deleteId)
-        {
-            string query = "DELETE FROM " + tableName + " WHERE "+columnName+" = '" + deleteId +"'";
-            //testCmd = "DELETE FROM `" + tableName + "` WHERE "+ tableAttr + " = " + deleteId;
-            Console.WriteLine(testCmd);
-            MessageErr(ExecuteNon(query));
-        }
-        //public String SelectAll(String tableName)
-        //{
-        //    string query = "SELECT * FROM " + tableName;
-        //    return query;
-        //}
         public String SelectColumn(String columnName, String afterFrom)
         {
             String query = "";
@@ -151,7 +87,7 @@ namespace management
             
             return query;
         }
-        public String selectWhereLike(String beforeWhere, String columnName, String whereValue)
+        public String SelectWhereLike(String beforeWhere, String columnName, String whereValue)
         {
             String query = beforeWhere + " WHERE " + columnName + " LIKE N'%" + whereValue + "%'"; 
             return query;
@@ -196,14 +132,74 @@ namespace management
         }
         public void ShowDt(String selectString)
         {
+            
             apt = new SqlDataAdapter(selectString, cnn);
             dt = new DataTable();
             //fill to datatable
             apt.Fill(dt);
         }
-       
-      
+        public void Query(String query) {
+            this.CloseConnection();
+            if (this.OpenConnection() == true ) {
+                this.count = 0;
+                this.result = new List<Dictionary<string, string>>();
+                SqlCommand cmd = new SqlCommand(query, cnn);
+                SqlDataReader reader = cmd.ExecuteReader();
+                if(reader.HasRows)
+                {
+                    int i = 0;
+                    while(reader.Read())
+                    {
+                        Dictionary<String, String> dic = new Dictionary<string, string>();
+                        for(int j=0; j<reader.FieldCount; j++) 
+                        {
+                            dic.Add(reader.GetName(j), Convert.ToString(reader.GetValue(j)));
+                        }
+                        i++;
+                        this.result.Add(dic);
+                    }
+                    reader.Close();
+                    this.CloseConnection();
+                    this.count = i;
+                }
+            }
+        }
+        public void ExecuteNonQuery(String query)
+        {
+            this.CloseConnection();
+            this.count = 0;
+            if (this.OpenConnection() == true)
+            {
+                SqlCommand cmd = new SqlCommand(query, cnn);
+                int i = cmd.ExecuteNonQuery();
+                this.CloseConnection();
+                this.count = i;
+            }
+        }
+        public SqlDataReader ExecuteReader(String query)
+        {
+            this.CloseConnection();
+            
+            if(this.OpenConnection() == true)
+            {
+                SqlCommand cmd = new SqlCommand(query, cnn);
+                reader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                                
+            }
+            return reader;
+        }
+        public int CountAllRow(String query)
+        {
+            Int32 n = 0;
+            if (this.OpenConnection() == true)
+            {
+                SqlCommand cmd = new SqlCommand(query, cnn);
+                n = (Int32)cmd.ExecuteScalar();
+            }
+            this.CloseConnection();
+         
+            return n;
+        }
 
-
-     }
+    }
 }

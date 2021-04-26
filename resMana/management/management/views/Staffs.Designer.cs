@@ -40,28 +40,32 @@ namespace management
             this.txtAcc = new System.Windows.Forms.TextBox();
             this.txtPass = new System.Windows.Forms.TextBox();
             this.txtName = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.lbelSearch = new System.Windows.Forms.TextBox();
-            this.txtRoll = new System.Windows.Forms.TextBox();
+            this.lbSearch = new System.Windows.Forms.Label();
+            this.txtSearch = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
+            this.cbRollName = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataUserGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // dataUserGridView1
             // 
             this.dataUserGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataUserGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataUserGridView1.ColumnHeadersHeight = 29;
+            this.dataUserGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataUserGridView1.Location = new System.Drawing.Point(224, 246);
             this.dataUserGridView1.Name = "dataUserGridView1";
+            this.dataUserGridView1.ReadOnly = true;
+            this.dataUserGridView1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.dataUserGridView1.RowHeadersWidth = 51;
             this.dataUserGridView1.RowTemplate.Height = 24;
             this.dataUserGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataUserGridView1.Size = new System.Drawing.Size(573, 201);
             this.dataUserGridView1.TabIndex = 0;
-            this.dataUserGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.onClickCell);
+            this.dataUserGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CellClick);
             // 
             // label1
             // 
@@ -108,6 +112,7 @@ namespace management
             this.button2.TabIndex = 5;
             this.button2.Text = "Thêm";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.AddUser);
             // 
             // button4
             // 
@@ -117,6 +122,7 @@ namespace management
             this.button4.TabIndex = 7;
             this.button4.Text = "Xem mật Khẩu";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.ViewPassword);
             // 
             // button5
             // 
@@ -126,6 +132,7 @@ namespace management
             this.button5.TabIndex = 8;
             this.button5.Text = "Xóa";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.DeleteUser);
             // 
             // txtAcc
             // 
@@ -148,28 +155,22 @@ namespace management
             this.txtName.Size = new System.Drawing.Size(196, 22);
             this.txtName.TabIndex = 11;
             // 
-            // label4
+            // lbSearch
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(221, 202);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(66, 17);
-            this.label4.TabIndex = 12;
-            this.label4.Text = "Tìm Kiếm";
+            this.lbSearch.AutoSize = true;
+            this.lbSearch.Location = new System.Drawing.Point(221, 202);
+            this.lbSearch.Name = "lbSearch";
+            this.lbSearch.Size = new System.Drawing.Size(66, 17);
+            this.lbSearch.TabIndex = 12;
+            this.lbSearch.Text = "Tìm Kiếm";
             // 
-            // lbelSearch
+            // txtSearch
             // 
-            this.lbelSearch.Location = new System.Drawing.Point(332, 199);
-            this.lbelSearch.Name = "lbelSearch";
-            this.lbelSearch.Size = new System.Drawing.Size(330, 22);
-            this.lbelSearch.TabIndex = 13;
-            // 
-            // txtRoll
-            // 
-            this.txtRoll.Location = new System.Drawing.Point(332, 146);
-            this.txtRoll.Name = "txtRoll";
-            this.txtRoll.Size = new System.Drawing.Size(196, 22);
-            this.txtRoll.TabIndex = 14;
+            this.txtSearch.Location = new System.Drawing.Point(332, 199);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(330, 22);
+            this.txtSearch.TabIndex = 13;
+            this.txtSearch.TextChanged += new System.EventHandler(this.SearchInStaff);
             // 
             // label5
             // 
@@ -182,9 +183,9 @@ namespace management
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(26, 149);
+            this.button3.Location = new System.Drawing.Point(26, 97);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(99, 55);
+            this.button3.Size = new System.Drawing.Size(105, 65);
             this.button3.TabIndex = 16;
             this.button3.Text = "Đăng kí ca làm";
             this.button3.UseVisualStyleBackColor = true;
@@ -202,25 +203,45 @@ namespace management
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(32, 246);
+            this.button7.Location = new System.Drawing.Point(26, 178);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(93, 65);
+            this.button7.Size = new System.Drawing.Size(105, 65);
             this.button7.TabIndex = 18;
             this.button7.Text = "Xem ca làm";
             this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.ShowWorkShifts);
+            // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(26, 261);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(105, 65);
+            this.button8.TabIndex = 19;
+            this.button8.Text = "Xem Nhân viên";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.ShowUsersList);
+            // 
+            // cbRollName
+            // 
+            this.cbRollName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbRollName.Location = new System.Drawing.Point(332, 146);
+            this.cbRollName.Name = "cbRollName";
+            this.cbRollName.Size = new System.Drawing.Size(121, 24);
+            this.cbRollName.TabIndex = 20;
             // 
             // Staffs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.cbRollName);
+            this.Controls.Add(this.button8);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.txtRoll);
-            this.Controls.Add(this.lbelSearch);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.txtSearch);
+            this.Controls.Add(this.lbSearch);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.txtPass);
             this.Controls.Add(this.txtAcc);
@@ -253,12 +274,13 @@ namespace management
         private System.Windows.Forms.TextBox txtAcc;
         private System.Windows.Forms.TextBox txtPass;
         private System.Windows.Forms.TextBox txtName;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox lbelSearch;
-        private System.Windows.Forms.TextBox txtRoll;
+        private System.Windows.Forms.Label lbSearch;
+        private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.ComboBox cbRollName;
     }
 }

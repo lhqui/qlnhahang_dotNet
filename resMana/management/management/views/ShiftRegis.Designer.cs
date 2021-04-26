@@ -34,9 +34,9 @@ namespace management
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.workDatepicker = new System.Windows.Forms.DateTimePicker();
-            this.listStart = new System.Windows.Forms.ListBox();
-            this.listEnd = new System.Windows.Forms.ListBox();
             this.button2 = new System.Windows.Forms.Button();
+            this.cbStartTime = new System.Windows.Forms.ComboBox();
+            this.cbEndTime = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // button1
@@ -47,7 +47,7 @@ namespace management
             this.button1.TabIndex = 2;
             this.button1.Text = "Đăng kí";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.btnClick_Regis);
+            this.button1.Click += new System.EventHandler(this.OnClick_Regis);
             // 
             // label1
             // 
@@ -86,27 +86,7 @@ namespace management
             this.workDatepicker.Size = new System.Drawing.Size(200, 22);
             this.workDatepicker.TabIndex = 7;
             this.workDatepicker.Value = new System.DateTime(2021, 4, 13, 0, 0, 0, 0);
-            this.workDatepicker.ValueChanged += new System.EventHandler(this.btnClear_listbox);
-            // 
-            // listStart
-            // 
-            this.listStart.FormattingEnabled = true;
-            this.listStart.ItemHeight = 16;
-            this.listStart.Location = new System.Drawing.Point(128, 71);
-            this.listStart.Name = "listStart";
-            this.listStart.Size = new System.Drawing.Size(120, 20);
-            this.listStart.TabIndex = 8;
-            this.listStart.Click += new System.EventHandler(this.btnClick_Starttime);
-            // 
-            // listEnd
-            // 
-            this.listEnd.FormattingEnabled = true;
-            this.listEnd.ItemHeight = 16;
-            this.listEnd.Location = new System.Drawing.Point(128, 104);
-            this.listEnd.Name = "listEnd";
-            this.listEnd.Size = new System.Drawing.Size(120, 20);
-            this.listEnd.TabIndex = 9;
-            this.listEnd.Click += new System.EventHandler(this.btnClick_EndShift);
+            this.workDatepicker.ValueChanged += new System.EventHandler(this.BtnClear_listbox);
             // 
             // button2
             // 
@@ -116,16 +96,34 @@ namespace management
             this.button2.TabIndex = 10;
             this.button2.Text = "Đóng";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.btnClick_Cancel);
+            this.button2.Click += new System.EventHandler(this.OnClick_Cancel);
+            // 
+            // cbStartTime
+            // 
+            this.cbStartTime.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbStartTime.Location = new System.Drawing.Point(128, 71);
+            this.cbStartTime.Name = "cbStartTime";
+            this.cbStartTime.Size = new System.Drawing.Size(121, 24);
+            this.cbStartTime.TabIndex = 11;
+            this.cbStartTime.Click += new System.EventHandler(this.OnClick_Starttime);
+            // 
+            // cbEndTime
+            // 
+            this.cbEndTime.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbEndTime.Location = new System.Drawing.Point(128, 104);
+            this.cbEndTime.Name = "cbEndTime";
+            this.cbEndTime.Size = new System.Drawing.Size(121, 24);
+            this.cbEndTime.TabIndex = 12;
+            this.cbEndTime.Click += new System.EventHandler(this.OnClick_EndShift);
             // 
             // ShiftRegis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(340, 215);
+            this.Controls.Add(this.cbEndTime);
+            this.Controls.Add(this.cbStartTime);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.listEnd);
-            this.Controls.Add(this.listStart);
             this.Controls.Add(this.workDatepicker);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -144,8 +142,8 @@ namespace management
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DateTimePicker workDatepicker;
-        private System.Windows.Forms.ListBox listStart;
-        private System.Windows.Forms.ListBox listEnd;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ComboBox cbStartTime;
+        private System.Windows.Forms.ComboBox cbEndTime;
     }
 }

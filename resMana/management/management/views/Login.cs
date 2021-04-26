@@ -23,11 +23,14 @@ namespace management
         {
             if (txtPass.Text != "" && txtUser.Text != "")
             {
-                Users us = new Users();
-                if (us.Login(txtUser.Text.ToString(), txtPass.Text.ToString()) == true)
+                object user = Users.Login(txtUser.Text.ToString(), txtPass.Text.ToString());
+               // Users us = new Users();
+                if ( user is Users)
                 {
                     this.Hide();
-                    Menu mn = new Menu();
+                    Menu mn = new Menu((Users) user);
+                    mn.Parent = Parent;
+                    mn.StartPosition = FormStartPosition.CenterParent;
                     mn.ShowDialog();
                     this.Close();
                 }
@@ -41,22 +44,17 @@ namespace management
             }
         }
 
-        private void hideText(object sender, EventArgs e)
-        {
-            txtPass.Text = "";
-            txtPass.ForeColor = Color.Black;
-            txtPass.PasswordChar = '*';
-        }
+
 
         private void btnHide(object sender, EventArgs e)
         {
-                txtPass.Text = "";
+
                 txtPass.ForeColor = Color.Black;
                 txtPass.PasswordChar = '*';
         }
-        private void txtPassLeave(object sender, EventArgs e)
+        public void HidePass()
         {
-
+            txtPass.PasswordChar = '*';
         }
     }
 }

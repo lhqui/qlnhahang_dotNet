@@ -30,8 +30,8 @@ namespace management
         private void InitializeComponent()
         {
             this.button1 = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtPass1 = new System.Windows.Forms.TextBox();
+            this.txtPass2 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -46,19 +46,19 @@ namespace management
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.btnClick_Change);
             // 
-            // textBox2
+            // txtPass1
             // 
-            this.textBox2.Location = new System.Drawing.Point(198, 28);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(154, 22);
-            this.textBox2.TabIndex = 2;
+            this.txtPass1.Location = new System.Drawing.Point(198, 28);
+            this.txtPass1.Name = "txtPass1";
+            this.txtPass1.Size = new System.Drawing.Size(154, 22);
+            this.txtPass1.TabIndex = 2;
             // 
-            // textBox3
+            // txtPass2
             // 
-            this.textBox3.Location = new System.Drawing.Point(198, 64);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(154, 22);
-            this.textBox3.TabIndex = 3;
+            this.txtPass2.Location = new System.Drawing.Point(198, 64);
+            this.txtPass2.Name = "txtPass2";
+            this.txtPass2.Size = new System.Drawing.Size(154, 22);
+            this.txtPass2.TabIndex = 3;
             // 
             // label2
             // 
@@ -85,8 +85,8 @@ namespace management
             this.ClientSize = new System.Drawing.Size(369, 174);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtPass2);
+            this.Controls.Add(this.txtPass1);
             this.Controls.Add(this.button1);
             this.Name = "ChangePass";
             this.Text = "ChangePass";
@@ -98,8 +98,8 @@ namespace management
         #endregion
 
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtPass1;
+        private System.Windows.Forms.TextBox txtPass2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
     }

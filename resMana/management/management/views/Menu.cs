@@ -12,26 +12,33 @@ namespace management
 {
     public partial class Menu : Form
     {
-        public Menu()
+        private Users user;
+        public Menu(Users user)
         {
             InitializeComponent();
+            this.user = user;
         }
 
         private void btnFoods(object sender, EventArgs e)
         {
-            this.Hide();
-            Foods fd = new Foods();
-            fd.ShowDialog();
-            this.Close();
+            if (user.CheckPermission() == true)
+            {
+                this.Hide();
+                Foods fd = new Foods(this.user);
+                fd.Parent = Parent;
+                fd.StartPosition = FormStartPosition.CenterParent;
+                fd.ShowDialog();
+                this.Close();
+            } else
+            {
+                MessageBox.Show("Bạn Không đủ quyền!");
+            }
+           
         }
 
         private void btnExit(object sender, EventArgs e)
         {
             DBConnect db = new DBConnect();
-            String valueId = CacheStore.GetItemsFromCache();
-            if (valueId == "1") {
-                CacheStore.RemoveItemsFromCache();
-            } 
             this.Hide();
             Login lg = new Login();
             lg.ShowDialog();
@@ -40,24 +47,39 @@ namespace management
 
         private void btnOrders(object sender, EventArgs e)
         {
-            this.Hide();
-            Orders ord = new Orders();
-            ord.ShowDialog();
-            this.Close();
+            user.GetStartHoursFromDb(user.users["uid"]);
+            if (user.CheckIsWorkingHour() == true)
+            {
+                //MessageBox.Show("co");
+                this.Hide();
+                Orders ord = new Orders(this.user);
+                ord.Parent = Parent;
+                ord.StartPosition = FormStartPosition.CenterParent;
+                ord.ShowDialog();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Bạn không có ca làm!");
+            }
+
         }
 
         private void btnHistory(object sender, EventArgs e)
         {
-            this.Hide();
-            History hs = new History();
-            hs.ShowDialog();
-            this.Close();
+            //this.Hide();
+            Total tt = new Total();
+            tt.StartPosition = FormStartPosition.CenterParent;
+            tt.ShowDialog();
+            //hs.ShowDialog();
         }
 
         private void btnStaffs(object sender, EventArgs e)
         {
             this.Hide();
-            Staffs st = new Staffs();
+            Staffs st = new Staffs(this.user);
+            st.Parent = Parent;
+            st.StartPosition = FormStartPosition.CenterParent;
             st.ShowDialog();
             this.Close();
         }
