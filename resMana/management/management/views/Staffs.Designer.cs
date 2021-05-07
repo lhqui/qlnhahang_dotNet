@@ -187,7 +187,7 @@ namespace management
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(105, 65);
             this.button3.TabIndex = 16;
-            this.button3.Text = "Đăng kí ca làm";
+            this.button3.Text = "Sắp xếp ca làm";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.btnClick_Regis);
             // 

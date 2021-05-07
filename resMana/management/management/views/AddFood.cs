@@ -75,7 +75,7 @@ namespace management
         private void OnClickAdd(object sender, EventArgs e)
         {
             GetFoddIdInCell();
-            String[] arr = {this.orderId, this.foodId, this.uId, DateTime.Now.ToString("yyyy-MM-dd HH:MM"), txtQuantity.Text };
+            String[] arr = {this.orderId, this.foodId, this.uId, DateTime.Now.ToString("yyyy-MM-dd HH:MM"), numericUpDown1.Value.ToString() };
             String query = "insert into orderlist values "+ db.StringValue(arr);
             // Console.WriteLine(query);
             //MessageBox.Show(query);
@@ -92,13 +92,6 @@ namespace management
 
         }
 
-        private void CheckIsNumber(object sender, EventArgs e)
-        {
-            if(!int.TryParse(txtQuantity.Text, out _))
-            {
-                MessageBox.Show("Số lượng phải là số");
-                txtQuantity.Text = "";
-            }
-        }
+
     }
 }

@@ -31,14 +31,13 @@ namespace management
         {
             this.components = new System.ComponentModel.Container();
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.foodDataGridView1 = new System.Windows.Forms.DataGridView();
             this.button3 = new System.Windows.Forms.Button();
             this.txtName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
-            this.txtPrice = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.lbSearch = new System.Windows.Forms.Label();
             this.txtSearch = new System.Windows.Forms.TextBox();
@@ -50,10 +49,12 @@ namespace management
             this.fillByToolStrip = new System.Windows.Forms.ToolStrip();
             this.fillByToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.btnEdit = new System.Windows.Forms.Button();
+            this.txtPrice = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.foodDataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.foodkindBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nhahangDataSet)).BeginInit();
             this.fillByToolStrip.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPrice)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -66,15 +67,15 @@ namespace management
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.AddFoodToDb);
             // 
-            // button2
+            // btnDelete
             // 
-            this.button2.Location = new System.Drawing.Point(41, 254);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(144, 48);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Xóa";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.DeleteFood);
+            this.btnDelete.Location = new System.Drawing.Point(41, 254);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(144, 48);
+            this.btnDelete.TabIndex = 1;
+            this.btnDelete.Text = "Xóa";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.DeleteFood);
             // 
             // foodDataGridView1
             // 
@@ -92,7 +93,6 @@ namespace management
             this.foodDataGridView1.Size = new System.Drawing.Size(654, 312);
             this.foodDataGridView1.TabIndex = 2;
             this.foodDataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GetFoodInCell);
-            this.foodDataGridView1.DoubleClick += new System.EventHandler(this.GetFoodInfor);
             // 
             // button3
             // 
@@ -102,7 +102,7 @@ namespace management
             this.button3.TabIndex = 3;
             this.button3.Text = "Trở lại";
             this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.ExistToMenu);
+            this.button3.Click += new System.EventHandler(this.ExitToMenu);
             // 
             // txtName
             // 
@@ -139,15 +139,6 @@ namespace management
             this.button4.Text = "Clear";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.ClearAllText);
-            // 
-            // txtPrice
-            // 
-            this.txtPrice.Location = new System.Drawing.Point(403, 119);
-            this.txtPrice.Name = "txtPrice";
-            this.txtPrice.Size = new System.Drawing.Size(456, 22);
-            this.txtPrice.TabIndex = 9;
-            this.txtPrice.Text = "0";
-            this.txtPrice.TextChanged += new System.EventHandler(this.CheckIsNumber);
             // 
             // label3
             // 
@@ -215,7 +206,7 @@ namespace management
             this.fillByToolStripButton});
             this.fillByToolStrip.Location = new System.Drawing.Point(0, 0);
             this.fillByToolStrip.Name = "fillByToolStrip";
-            this.fillByToolStrip.Size = new System.Drawing.Size(938, 27);
+            this.fillByToolStrip.Size = new System.Drawing.Size(938, 31);
             this.fillByToolStrip.TabIndex = 15;
             this.fillByToolStrip.Text = "fillByToolStrip";
             // 
@@ -236,11 +227,24 @@ namespace management
             this.btnEdit.UseVisualStyleBackColor = true;
             this.btnEdit.Click += new System.EventHandler(this.EditFood);
             // 
+            // txtPrice
+            // 
+            this.txtPrice.Location = new System.Drawing.Point(403, 122);
+            this.txtPrice.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.txtPrice.Name = "txtPrice";
+            this.txtPrice.Size = new System.Drawing.Size(120, 22);
+            this.txtPrice.TabIndex = 17;
+            // 
             // Foods
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(938, 571);
+            this.Controls.Add(this.txtPrice);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.fillByToolStrip);
             this.Controls.Add(this.cbKind);
@@ -248,14 +252,13 @@ namespace management
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.lbSearch);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.txtPrice);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.foodDataGridView1);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.button1);
             this.Name = "Foods";
             this.Text = "Foods";
@@ -264,6 +267,7 @@ namespace management
             ((System.ComponentModel.ISupportInitialize)(this.nhahangDataSet)).EndInit();
             this.fillByToolStrip.ResumeLayout(false);
             this.fillByToolStrip.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPrice)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -272,14 +276,13 @@ namespace management
         #endregion
 
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.DataGridView foodDataGridView1;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.TextBox txtPrice;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lbSearch;
         private System.Windows.Forms.TextBox txtSearch;
@@ -291,5 +294,6 @@ namespace management
         private System.Windows.Forms.ToolStrip fillByToolStrip;
         private System.Windows.Forms.ToolStripButton fillByToolStripButton;
         private System.Windows.Forms.Button btnEdit;
+        private System.Windows.Forms.NumericUpDown txtPrice;
     }
 }

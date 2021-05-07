@@ -18,9 +18,9 @@ namespace management
         public Orders(Users user)
         {
             InitializeComponent();
-            ShowOrderInOperate();
             this.user = user;
-            CheckAreAnyOrder();
+            ShowOrderInOperate();
+            SwitchOffButton();
         }
 
         private void btnBack(object sender, EventArgs e)
@@ -42,6 +42,8 @@ namespace management
             tb.StartPosition = FormStartPosition.CenterParent;
             tb.ShowDialog();
             ShowOrderInOperate();
+            SwitchOffButton();
+            //this.Refresh();
         }
 
         private void ChangeTable(object sender, EventArgs e)
@@ -60,30 +62,43 @@ namespace management
              DataGridViewRow row = this.dataOrderGridView1.Rows[n];
              this.orderId = row.Cells["ordersid"].Value.ToString();
         }
-        private void CheckAreAnyOrder()
+        private bool CheckEmptyOrder()
         {
             String query = "select ordersid, tablename, opentime, customername, statusid " +
                     "from orders inner join tablest on orders.tableid = tablest.tableid where statusid=2";
             db.Query(query);
-            if (db.count == 0)
+            if (db.count > 0)
+            {
+                return false;
+            }
+            return true;
+        }
+        private void SwitchOffButton()
+        {
+            if(CheckEmptyOrder() == true)
             {
                 btnChangeTable.Enabled = false;
                 btnViewOrder.Enabled = false;
                 btnGetBill.Enabled = false;
-            } 
-
+            } else
+            {
+                btnChangeTable.Enabled = true;
+                btnViewOrder.Enabled = true;
+                btnGetBill.Enabled = true;
+            }
         }
         public void ShowOrderInOperate()
         {
-            String query = "select ordersid, tablename, opentime, customername, statusid " +
-                "from orders inner join tablest on orders.tableid = tablest.tableid where statusid=2";
-            db.ShowDt(query);
-            dataOrderGridView1.DataSource = db.dt;
-            dataOrderGridView1.Columns[0].HeaderCell.Value = "STT";
-            dataOrderGridView1.Columns[1].HeaderCell.Value = "Bàn";
-            dataOrderGridView1.Columns[2].HeaderCell.Value = "Thời gian vào";
-            dataOrderGridView1.Columns[3].HeaderCell.Value = "Tên khách";
-            dataOrderGridView1.Columns[4].Visible = false;
+                String query = "select ordersid, tablename, opentime, customername, statusid " +
+                        "from orders inner join tablest on orders.tableid = tablest.tableid where statusid=2";
+                db.ShowDt(query);
+                dataOrderGridView1.DataSource = db.dt;
+                dataOrderGridView1.Columns[0].HeaderCell.Value = "STT";
+                dataOrderGridView1.Columns[0].Visible = false;
+                dataOrderGridView1.Columns[1].HeaderCell.Value = "Bàn";
+                dataOrderGridView1.Columns[2].HeaderCell.Value = "Thời gian vào";
+                dataOrderGridView1.Columns[3].HeaderCell.Value = "Tên khách";
+                dataOrderGridView1.Columns[4].Visible = false;
 
         }
 
@@ -101,14 +116,43 @@ namespace management
             fod.ShowDialog();
             GetOrderIdInCell();
         }
-
+        private bool CheckEmptyBill()
+        {
+            String query = "select * from orderlist where ordersid=" + this.orderId;
+            db.Query(query);
+            if(db.count > 0)
+            {
+                return false;
+            }
+            return true;
+        }
         private void PayOrder(object sender, EventArgs e)
         {
             GetOrderIdInCell();
-            GetBill get = new GetBill(this.user, this.orderId);
-            get.StartPosition = FormStartPosition.CenterParent;
-            get.ShowDialog();
+            Order order = new Order(this.orderId);
+            if(CheckEmptyBill() == true)
+            {
+                DialogResult diag = MessageBox.Show("Hien chua co mon ban muon huy khong?", "huy", MessageBoxButtons.YesNo);
+                if (diag == DialogResult.Yes)
+                {
+                    String queryDeleteBill = "delete orders where ordersid=" + this.orderId;
+                    String queryUpdateTable = "update tablest set statusid=1 where tableid=" + order.orderDic["tableid"];
+                    Console.WriteLine(queryUpdateTable);
+                    db.ExecuteNonQuery(queryUpdateTable);
+                    db.ExecuteNonQuery(queryDeleteBill);
+                    MessageBox.Show("Da Huy");
+                }
+
+            } else
+            {
+                GetBill get = new GetBill(this.user, this.orderId);
+                get.StartPosition = FormStartPosition.CenterParent;
+                get.ShowDialog();
+               
+            }
             ShowOrderInOperate();
+            SwitchOffButton();
+
         }
     }
 }

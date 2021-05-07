@@ -105,15 +105,23 @@ namespace management
             String selectStartTime = cbStartTime.Text;
             listEndtime.Clear();
 
-            // lay value cua starttime
-            for (int i= Int32.Parse(selectStartTime) + 1; i <= 22 ; i ++)
+            if (selectStartTime != "") 
+            {
+                // lay value cua starttime
+                for (int i = Int32.Parse(selectStartTime) + 1; i <= 22; i++)
                 {
                     listEndtime.AddLast(i);
-                }
-                foreach (int num in listEndtime) {
+                };
+                foreach (int num in listEndtime)
+                {
                     cbEndTime.Items.Add(num);
-                }
-               // MessageBox.Show(selectStartTime);
+                };
+                // MessageBox.Show(selectStartTime);
+            } else
+            {
+                MessageBox.Show("Hay chon ca bat dau");
+            }
+
 
         }
 

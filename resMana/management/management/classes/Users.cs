@@ -27,6 +27,7 @@ namespace management
                 users.Add("uid", reader["staffid"].ToString());
                 users.Add("uname", reader["staffname"].ToString());
                 users.Add("rollid", reader["rollid"].ToString());
+                users.Add("password", reader["password"].ToString());
             }
 
         }
@@ -73,7 +74,8 @@ namespace management
         {
             int m = 0;
             //int j = 0;
-            foreach(String n in startHours)
+            workHoursOfUser.Clear();
+            foreach (String n in startHours)
             {
                 workHoursOfUser.Add(m, Int32.Parse(n));
                 m += 1; 

@@ -12,12 +12,12 @@ namespace management
 {
     public partial class ChangePass : Form
     {
-        private String userId = "";
+        private String userId;
        
         public ChangePass(String userId)
         {
             InitializeComponent();
-            this.userId = "";
+            this.userId = userId;
             //this.user = user;
         }
 

@@ -22,6 +22,7 @@ namespace management
             this.user = user;
             ShowAllFood();
             GetFoodKind();
+            CheckAreAnyFood();
         }
 
         private int GetIndexlistBox()
@@ -52,7 +53,7 @@ namespace management
         private Boolean IsExistInDb(String foodName)
         {
             DBConnect db = new DBConnect();
-            String query = "Select * from foods where foodname='" + foodName + "'";
+            String query = "Select * from foods where foodname=N'" + foodName + "'";
             db.Query(query);
             if(db.count > 0)
             {
@@ -61,14 +62,6 @@ namespace management
             return false;
         }
 
-        private void CheckIsNumber(object sender, EventArgs e)
-        {
-            if (!int.TryParse(txtPrice.Text, out _))
-            {
-                MessageBox.Show("Giá phải là số");
-                txtPrice.Text = "";
-            }
-        }
 
         private void CheckIsString(object sender, EventArgs e)
         {
@@ -93,6 +86,7 @@ namespace management
             db.ShowDt(query);
             foodDataGridView1.DataSource = db.dt;
             foodDataGridView1.Columns[0].HeaderCell.Value = "STT";
+            foodDataGridView1.Columns[0].Visible = false;
             foodDataGridView1.Columns[1].HeaderCell.Value = "Tên món";
             foodDataGridView1.Columns[2].HeaderCell.Value = "Giá";
             foodDataGridView1.Columns[3].HeaderCell.Value = "Loại";
@@ -101,7 +95,7 @@ namespace management
         private void Clear()
         {
             txtName.Text = "";
-            txtPrice.Text = "0";
+            txtPrice.Value = 0;
             cbKind.SelectedItem = null;
         }
 
@@ -140,11 +134,26 @@ namespace management
             }
             
         }
+        private void CheckAreAnyFood()
+        {
+            String query = "select * from foods";
+            db.Query(query);
+            if (db.count == 0)
+            {
+                btnEdit.Enabled = false;
+                btnDelete.Enabled = false;
+            } else
+            {
+                btnEdit.Enabled = true;
+                btnDelete.Enabled = true;
+            }
+
+        }
         private void AddFoodToDb(object sender, EventArgs e)
         {
             //create string for attr and values
             int indexKind = GetIndexlistBox();
-            string[] tableValues = { txtName.Text, txtPrice.Text, indexKind.ToString() };
+            string[] tableValues = { txtName.Text, txtPrice.Value.ToString(), indexKind.ToString() };
             String query = "Insert into foods values" + db.StringValue(tableValues);
             // check conditions
             if (txtName.Text != "" && cbKind.Text != "")
@@ -158,6 +167,7 @@ namespace management
                     db.ExecuteNonQuery(query);
                     Message(db.count);
                     ShowAllFood();
+                    CheckAreAnyFood();
                 }
                 //clear data input
                 Clear();
@@ -165,28 +175,34 @@ namespace management
             }
             else
             {
-                txtPrice.Text = "";
+                txtPrice.Value = 0;
             }
 
         }
 
         private void EditFood(object sender, EventArgs e)
         {
+            GetFoodIdInRow();
             FoodObject x = new FoodObject(this.foodid);
-
-
-            if (x.GetValueFromDic("foodname") != txtName.Text || x.GetValueFromDic("foodkind") != txtPrice.Text || x.GetValueFromDic("foodkind") != cbKind.Text)
+            if (x.foodDic["foodname"] != txtName.Text || x.foodDic["foodprice"]!= txtPrice.Value.ToString() || x.foodDic["kindname"] != cbKind.Text)
             {
+                if(txtName.Text != "")
+                {
+                    int indexKind = GetIndexlistBox();
+                    String afterSet = "foodname=N'" + txtName.Text + "', foodprice='" + txtPrice.Value.ToString() + "',"
+                        + " foodkind_id='" + indexKind.ToString() + "'";
+                    String afterWhere = "foodid = " + this.foodid;
+                    String query = "update foods set " + afterSet + " where " + afterWhere;
+                    db.ExecuteNonQuery(query);
+                    Message(db.count);
+                    ShowAllFood();
 
-                int indexKind = GetIndexlistBox();
-                String afterSet = "foodname=N'" + txtName.Text + "', foodprice='" + txtPrice.Text + "',"
-                    + " foodkind_id='" + indexKind.ToString() + "'";
-                String afterWhere = "foodid = " + this.foodid;
-                String query = "update foods set " + afterSet + " where " + afterWhere;
-                db.ExecuteNonQuery(query);
-                Message(db.count);
-                ShowAllFood();
-                //MessageBox.Show("difference");
+                } else
+                {
+
+                    MessageBox.Show("Ten dang rong");
+
+                }
 
             }
             else
@@ -205,7 +221,9 @@ namespace management
                 db.ExecuteNonQuery(query);
                 Message(db.count);
                 Clear();
+                CheckAreAnyFood();
                 ShowAllFood();
+
             }
             else
             {
@@ -237,30 +255,22 @@ namespace management
                 this.foodid = row.Cells["foodid"].Value.ToString();
                 txtName.Text = row.Cells["FoodName"].Value.ToString();
                 cbKind.Text = row.Cells["kindname"].Value.ToString();
-                txtPrice.Text = row.Cells["FoodPrice"].Value.ToString();
+                txtPrice.Value = int.Parse(row.Cells["FoodPrice"].Value.ToString());
             }
         }
 
-        private void GetFoodInfor(object sender, EventArgs e)
-        {
-            FoodObject x = new FoodObject(this.foodid);
-
-            MessageBox.Show(" Stt: " + x.GetValueFromDic("foodid")
-                + "\n Tên thực phẩm: " + x.GetValueFromDic("foodname")
-                + "\n Loại: " + x.GetValueFromDic("foodkind")
-                + "\n Giá: " + x.GetValueFromDic("foodprice") + " vnđ");
-        }
 
         private void ClearAllText(object sender, EventArgs e)
         {
             Clear();
         }
 
-        private void ExistToMenu(object sender, EventArgs e)
+
+
+        private void ExitToMenu(object sender, EventArgs e)
         {
             this.Hide();
             Menu mn = new Menu(this.user);
-
             mn.StartPosition = FormStartPosition.CenterParent;
             mn.ShowDialog();
             this.Close();

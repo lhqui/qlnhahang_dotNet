@@ -76,12 +76,19 @@ namespace management
 
         private void btnStaffs(object sender, EventArgs e)
         {
-            this.Hide();
-            Staffs st = new Staffs(this.user);
-            st.Parent = Parent;
-            st.StartPosition = FormStartPosition.CenterParent;
-            st.ShowDialog();
-            this.Close();
+            if(user.CheckPermission() == true)
+            {
+                this.Hide();
+                Staffs st = new Staffs(this.user);
+                st.Parent = Parent;
+                st.StartPosition = FormStartPosition.CenterParent;
+                st.ShowDialog();
+                this.Close();
+            } else
+            {
+                MessageBox.Show("Ban khong du quyen");
+            }
+
         }
     }
 }

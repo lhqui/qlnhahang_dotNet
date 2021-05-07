@@ -34,22 +34,14 @@ namespace management
         }
         private bool OpenConnection()
         {
-            
+
             try
             {
-                cnn.Open();
-                return true;
-            } catch (SqlException ex)
+                    cnn.Open();
+                    return true;
+            }
+            catch (Exception)
             {
-                switch (ex.Number)
-                {
-                    case 0:
-                        Console.WriteLine("Cannot Connect to server");
-                        break;
-                    case 1045:
-                        Console.WriteLine("Invalid user/pasword");
-                        break;
-                }
                 return false;
             }
         }
@@ -57,11 +49,12 @@ namespace management
         {
             try
             {
-                cnn.Close();
-                return true;
-            } catch (SqlException ex)
+                   cnn.Close();
+                   return true;
+
+            }
+            catch (Exception)
             {
-                Console.WriteLine(ex.Message);
                 return false;
             }
         }
@@ -132,7 +125,7 @@ namespace management
         }
         public void ShowDt(String selectString)
         {
-            
+            this.CloseConnection();
             apt = new SqlDataAdapter(selectString, cnn);
             dt = new DataTable();
             //fill to datatable
@@ -178,7 +171,7 @@ namespace management
         }
         public SqlDataReader ExecuteReader(String query)
         {
-            this.CloseConnection();
+           // this.CloseConnection();
             
             if(this.OpenConnection() == true)
             {

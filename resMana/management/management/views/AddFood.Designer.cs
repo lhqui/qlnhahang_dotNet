@@ -34,8 +34,9 @@ namespace management
             this.lbSearch = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
             this.lbQuantity = new System.Windows.Forms.Label();
-            this.txtQuantity = new System.Windows.Forms.TextBox();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.foodDataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // foodDataGridView1
@@ -88,21 +89,24 @@ namespace management
             this.lbQuantity.TabIndex = 4;
             this.lbQuantity.Text = "Số Lượng";
             // 
-            // txtQuantity
+            // numericUpDown1
             // 
-            this.txtQuantity.Location = new System.Drawing.Point(142, 85);
-            this.txtQuantity.Name = "txtQuantity";
-            this.txtQuantity.Size = new System.Drawing.Size(100, 22);
-            this.txtQuantity.TabIndex = 5;
-            this.txtQuantity.Text = "1";
-            this.txtQuantity.TextChanged += new System.EventHandler(this.CheckIsNumber);
+            this.numericUpDown1.Location = new System.Drawing.Point(142, 85);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(120, 22);
+            this.numericUpDown1.TabIndex = 5;
+            this.numericUpDown1.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // AddFood
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(593, 458);
-            this.Controls.Add(this.txtQuantity);
+            this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.lbQuantity);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.lbSearch);
@@ -111,6 +115,7 @@ namespace management
             this.Name = "AddFood";
             this.Text = "AddFood";
             ((System.ComponentModel.ISupportInitialize)(this.foodDataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -123,6 +128,6 @@ namespace management
         private System.Windows.Forms.Label lbSearch;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Label lbQuantity;
-        private System.Windows.Forms.TextBox txtQuantity;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
     }
 }

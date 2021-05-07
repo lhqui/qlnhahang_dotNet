@@ -7,15 +7,11 @@ using System.Data.SqlClient;
 
 namespace management
 {
-    class FoodObject
+    public class FoodObject
     {
         DBConnect db = new DBConnect();
-        //     public String foodid { get { return foodid; } set { foodid = value; } }
-        //public String foodid { get; set; }
-        //public String foodName { get; set; }
-        //public String foodPrice { get; set; }
-        //public String foodKind { get; set; }
-        Dictionary<string, string> food = new Dictionary<string, string>();
+
+        public Dictionary<string, string> foodDic = new Dictionary<string, string>();
 
  
         public FoodObject(string foodid)
@@ -28,16 +24,13 @@ namespace management
             SqlDataReader dtRead = db.ExecuteReader(query);
             while (dtRead.Read())
             {
-                food.Add("foodname", dtRead["FOODNAME"].ToString());
-                food.Add("kindname", dtRead["kindname"].ToString());
-                food.Add("foodprice", dtRead["FOODPRICE"].ToString());
-                food.Add("foodid", dtRead["foodid"].ToString());
+                foodDic.Add("foodname", dtRead["FOODNAME"].ToString());
+                foodDic.Add("kindname", dtRead["kindname"].ToString());
+                foodDic.Add("foodprice", dtRead["FOODPRICE"].ToString());
+                foodDic.Add("foodid", dtRead["foodid"].ToString());
             }
         }
-        public String GetValueFromDic(String keyname)
-        {
-            return food[keyname] as String;
-        }
+
 
 
     }

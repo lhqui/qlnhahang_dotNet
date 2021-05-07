@@ -22,6 +22,7 @@ namespace management
             InitializeComponent();
             this.user = user;
             ShowDataToGridView();
+            GetRoll();
         }
 
         private void btnBack(object sender, EventArgs e)
@@ -35,16 +36,10 @@ namespace management
 
         private void btnClick_Change(object sender, EventArgs e)
         {
-            if(user.CheckPermission() == true && isUsersShow)
-            {
-                ChangePass cp = new ChangePass(this.userId);
-                cp.Parent = Parent;
-                cp.StartPosition = FormStartPosition.CenterParent;
-                cp.ShowDialog();
-            } else
-            {
-                MessageBox.Show("ban khong du quyen hoac user khong hop le");
-            }
+         ChangePass cp = new ChangePass(this.userId);
+         cp.Parent = Parent;
+         cp.StartPosition = FormStartPosition.CenterParent;
+         cp.ShowDialog();
            
         }
 
@@ -215,21 +210,9 @@ namespace management
 
         private void ViewPassword(object sender, EventArgs e)
         {
-            
-            if (user.CheckPermission() == true && isUsersShow)
-            {
-                GetIdUserInCell();
-                String query = "select staffname, password from staffs where staffid=" + this.userId;
-                SqlDataReader reader = db.ExecuteReader(query);
-                while (reader.Read())
-                {
-                    MessageBox.Show("Mat khau cua tai khoan " + reader["staffname"].ToString() + ": \n" + reader["password"].ToString());
-                }
-            }
-            else
-            {
-                MessageBox.Show("Ban khong du quyen hoac user khong hop le");
-            }
+           GetIdUserInCell();
+            Users us = new Users(this.userId);
+            MessageBox.Show("Mat khau la: " + us.users["password"]);
         }
         private void ShowDataToGridView()
         {
