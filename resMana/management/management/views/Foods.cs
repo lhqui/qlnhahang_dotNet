@@ -25,19 +25,7 @@ namespace management
             CheckAreAnyFood();
         }
 
-        private int GetIndexlistBox()
-        {
-            int lstIndex = 0;
-            if (cbKind.SelectedIndex == -1)
-            {
-                MessageBox.Show("Hãy chọn loại");
-            }
-            else
-            {
-                lstIndex = cbKind.SelectedIndex + 1;
-            }
-            return lstIndex;
-        }
+
 
  
         public void Message(int count)
@@ -96,7 +84,6 @@ namespace management
         {
             txtName.Text = "";
             txtPrice.Value = 0;
-            cbKind.SelectedItem = null;
         }
 
    
@@ -152,8 +139,8 @@ namespace management
         private void AddFoodToDb(object sender, EventArgs e)
         {
             //create string for attr and values
-            int indexKind = GetIndexlistBox();
-            string[] tableValues = { txtName.Text, txtPrice.Value.ToString(), indexKind.ToString() };
+            String indexKind = cbKind.SelectedValue.ToString();
+            string[] tableValues = { txtName.Text, txtPrice.Value.ToString(), indexKind };
             String query = "Insert into foods values" + db.StringValue(tableValues);
             // check conditions
             if (txtName.Text != "" && cbKind.Text != "")
@@ -188,9 +175,9 @@ namespace management
             {
                 if(txtName.Text != "")
                 {
-                    int indexKind = GetIndexlistBox();
+                    String indexKind = cbKind.SelectedValue.ToString();
                     String afterSet = "foodname=N'" + txtName.Text + "', foodprice='" + txtPrice.Value.ToString() + "',"
-                        + " foodkind_id='" + indexKind.ToString() + "'";
+                        + " foodkind_id='" + indexKind + "'";
                     String afterWhere = "foodid = " + this.foodid;
                     String query = "update foods set " + afterSet + " where " + afterWhere;
                     db.ExecuteNonQuery(query);

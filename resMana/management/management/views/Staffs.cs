@@ -126,8 +126,8 @@ namespace management
         }
         private void AddUser(object sender, EventArgs e)
         {
-            int rollIndex = GetIdexlistBox();
-            String[] arr = { txtAcc.Text, txtPass.Text, txtName.Text, rollIndex.ToString() };
+            String rollIndex = cbRollName.SelectedValue.ToString();
+            String[] arr = { txtAcc.Text, txtPass.Text, txtName.Text, rollIndex };
             String queryValue = db.StringValue(arr);
             String query = "insert into staffs values " + queryValue;
             if (txtAcc.Text != "" && txtName.Text != "" && txtPass.Text != "")
@@ -226,6 +226,7 @@ namespace management
                 dataUserGridView1.DataSource = db.dt;
                // dataUserGridView1.AutoGenerateColumns = false;
                 dataUserGridView1.Columns[0].HeaderCell.Value = "STT";
+                dataUserGridView1.Columns[0].Visible = false;
                 dataUserGridView1.Columns[1].HeaderCell.Value = "Họ tên";
                 dataUserGridView1.Columns[2].HeaderCell.Value = "Chức vụ";
             } else
@@ -260,6 +261,7 @@ namespace management
                     db.ShowDt(queryStaff);
                     dataUserGridView1.DataSource = db.dt;
                     dataUserGridView1.Columns[0].HeaderCell.Value = "STT";
+                    dataUserGridView1.Columns[0].Visible = false;
                     dataUserGridView1.Columns[1].HeaderCell.Value = "Họ tên";
                     dataUserGridView1.Columns[2].HeaderCell.Value = "Chức vụ";
                 } else
