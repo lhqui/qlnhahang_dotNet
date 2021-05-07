@@ -34,59 +34,78 @@ namespace management
             this.bnLogin = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.lblDangNhap = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtUser
             // 
-            this.txtUser.Location = new System.Drawing.Point(155, 58);
+            this.txtUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUser.Location = new System.Drawing.Point(42, 95);
             this.txtUser.Multiline = true;
             this.txtUser.Name = "txtUser";
-            this.txtUser.Size = new System.Drawing.Size(189, 33);
+            this.txtUser.Size = new System.Drawing.Size(291, 33);
             this.txtUser.TabIndex = 0;
             // 
             // txtPass
             // 
-            this.txtPass.Location = new System.Drawing.Point(155, 112);
+            this.txtPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPass.Location = new System.Drawing.Point(42, 176);
             this.txtPass.Multiline = true;
             this.txtPass.Name = "txtPass";
-            this.txtPass.Size = new System.Drawing.Size(189, 33);
+            this.txtPass.Size = new System.Drawing.Size(291, 33);
             this.txtPass.TabIndex = 1;
             this.txtPass.TextChanged += new System.EventHandler(this.btnHide);
             // 
             // bnLogin
             // 
-            this.bnLogin.Location = new System.Drawing.Point(371, 58);
+            this.bnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bnLogin.Location = new System.Drawing.Point(42, 234);
             this.bnLogin.Name = "bnLogin";
-            this.bnLogin.Size = new System.Drawing.Size(111, 87);
+            this.bnLogin.Size = new System.Drawing.Size(291, 41);
             this.bnLogin.TabIndex = 2;
-            this.bnLogin.Text = "Login";
+            this.bnLogin.Text = "Đăng nhập";
             this.bnLogin.UseVisualStyleBackColor = true;
             this.bnLogin.Click += new System.EventHandler(this.btnLogin);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(44, 61);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(37, 60);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 17);
+            this.label1.Size = new System.Drawing.Size(149, 25);
             this.label1.TabIndex = 3;
-            this.label1.Text = "User";
+            this.label1.Text = "Tên người dùng";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(44, 115);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(37, 138);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(69, 17);
+            this.label2.Size = new System.Drawing.Size(93, 25);
             this.label2.TabIndex = 4;
-            this.label2.Text = "Password";
+            this.label2.Text = "Mật khẩu";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // lblDangNhap
+            // 
+            this.lblDangNhap.AutoSize = true;
+            this.lblDangNhap.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDangNhap.Location = new System.Drawing.Point(105, 16);
+            this.lblDangNhap.Name = "lblDangNhap";
+            this.lblDangNhap.Size = new System.Drawing.Size(163, 32);
+            this.lblDangNhap.TabIndex = 5;
+            this.lblDangNhap.Text = "Đăng nhập";
+            this.lblDangNhap.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // Login
             // 
             this.AcceptButton = this.bnLogin;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(525, 210);
+            this.ClientSize = new System.Drawing.Size(378, 297);
+            this.Controls.Add(this.lblDangNhap);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.bnLogin);
@@ -108,5 +127,6 @@ namespace management
         private System.Windows.Forms.Button bnLogin;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblDangNhap;
     }
 }

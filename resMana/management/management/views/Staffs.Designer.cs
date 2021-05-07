@@ -35,7 +35,7 @@ namespace management
             this.label3 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnXemMK = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.txtAcc = new System.Windows.Forms.TextBox();
             this.txtPass = new System.Windows.Forms.TextBox();
@@ -44,10 +44,11 @@ namespace management
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
+            this.btnDoiMK = new System.Windows.Forms.Button();
+            this.btnXemca = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.cbRollName = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataUserGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,7 +57,7 @@ namespace management
             this.dataUserGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataUserGridView1.ColumnHeadersHeight = 29;
             this.dataUserGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dataUserGridView1.Location = new System.Drawing.Point(224, 246);
+            this.dataUserGridView1.Location = new System.Drawing.Point(211, 335);
             this.dataUserGridView1.Name = "dataUserGridView1";
             this.dataUserGridView1.ReadOnly = true;
             this.dataUserGridView1.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -70,65 +71,72 @@ namespace management
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(221, 27);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(206, 84);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(73, 17);
+            this.label1.Size = new System.Drawing.Size(109, 25);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Tài Khoản";
+            this.label1.Text = "Tài Khoản:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(221, 65);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(206, 125);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(68, 17);
+            this.label2.Size = new System.Drawing.Size(103, 25);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Mật Khẩu";
+            this.label2.Text = "Mật Khẩu:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(221, 102);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(206, 166);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(99, 17);
+            this.label3.Size = new System.Drawing.Size(143, 25);
             this.label3.TabIndex = 3;
-            this.label3.Text = "Tên nhân viên";
+            this.label3.Text = "Tên nhân viên:";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(32, 391);
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(22, 493);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(99, 35);
+            this.button1.Size = new System.Drawing.Size(158, 43);
             this.button1.TabIndex = 4;
-            this.button1.Text = "Tro Lai";
+            this.button1.Text = "Trở lại";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.btnBack);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(576, 22);
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(629, 85);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(99, 60);
+            this.button2.Size = new System.Drawing.Size(155, 42);
             this.button2.TabIndex = 5;
             this.button2.Text = "Thêm";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.AddUser);
             // 
-            // button4
+            // btnXemMK
             // 
-            this.button4.Location = new System.Drawing.Point(691, 22);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(99, 60);
-            this.button4.TabIndex = 7;
-            this.button4.Text = "Xem mật Khẩu";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.ViewPassword);
+            this.btnXemMK.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXemMK.Location = new System.Drawing.Point(629, 178);
+            this.btnXemMK.Name = "btnXemMK";
+            this.btnXemMK.Size = new System.Drawing.Size(155, 40);
+            this.btnXemMK.TabIndex = 7;
+            this.btnXemMK.Text = "Xem mật khẩu";
+            this.btnXemMK.UseVisualStyleBackColor = true;
+            this.btnXemMK.Click += new System.EventHandler(this.ViewPassword);
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(576, 103);
+            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.Location = new System.Drawing.Point(629, 131);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(99, 65);
+            this.button5.Size = new System.Drawing.Size(155, 41);
             this.button5.TabIndex = 8;
             this.button5.Text = "Xóa";
             this.button5.UseVisualStyleBackColor = true;
@@ -136,108 +144,130 @@ namespace management
             // 
             // txtAcc
             // 
-            this.txtAcc.Location = new System.Drawing.Point(332, 22);
+            this.txtAcc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAcc.Location = new System.Drawing.Point(349, 81);
             this.txtAcc.Name = "txtAcc";
-            this.txtAcc.Size = new System.Drawing.Size(196, 22);
+            this.txtAcc.Size = new System.Drawing.Size(256, 30);
             this.txtAcc.TabIndex = 9;
             // 
             // txtPass
             // 
-            this.txtPass.Location = new System.Drawing.Point(332, 62);
+            this.txtPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPass.Location = new System.Drawing.Point(349, 122);
             this.txtPass.Name = "txtPass";
-            this.txtPass.Size = new System.Drawing.Size(196, 22);
+            this.txtPass.Size = new System.Drawing.Size(256, 30);
             this.txtPass.TabIndex = 10;
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(332, 97);
+            this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtName.Location = new System.Drawing.Point(349, 163);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(196, 22);
+            this.txtName.Size = new System.Drawing.Size(256, 30);
             this.txtName.TabIndex = 11;
             // 
             // lbSearch
             // 
             this.lbSearch.AutoSize = true;
-            this.lbSearch.Location = new System.Drawing.Point(221, 202);
+            this.lbSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbSearch.Location = new System.Drawing.Point(206, 287);
             this.lbSearch.Name = "lbSearch";
-            this.lbSearch.Size = new System.Drawing.Size(66, 17);
+            this.lbSearch.Size = new System.Drawing.Size(101, 25);
             this.lbSearch.TabIndex = 12;
-            this.lbSearch.Text = "Tìm Kiếm";
+            this.lbSearch.Text = "Tìm Kiếm:";
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(332, 199);
+            this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearch.Location = new System.Drawing.Point(349, 284);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(330, 22);
+            this.txtSearch.Size = new System.Drawing.Size(435, 30);
             this.txtSearch.TabIndex = 13;
             this.txtSearch.TextChanged += new System.EventHandler(this.SearchInStaff);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(221, 149);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(206, 207);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(59, 17);
+            this.label5.Size = new System.Drawing.Size(91, 25);
             this.label5.TabIndex = 15;
-            this.label5.Text = "Chức vụ";
+            this.label5.Text = "Chức vụ:";
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(26, 97);
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(22, 122);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(105, 65);
+            this.button3.Size = new System.Drawing.Size(158, 43);
             this.button3.TabIndex = 16;
             this.button3.Text = "Sắp xếp ca làm";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.btnClick_Regis);
             // 
-            // button6
+            // btnDoiMK
             // 
-            this.button6.Location = new System.Drawing.Point(691, 103);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(99, 63);
-            this.button6.TabIndex = 17;
-            this.button6.Text = "Đổi mật khẩu";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.btnClick_Change);
+            this.btnDoiMK.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDoiMK.Location = new System.Drawing.Point(629, 224);
+            this.btnDoiMK.Name = "btnDoiMK";
+            this.btnDoiMK.Size = new System.Drawing.Size(155, 40);
+            this.btnDoiMK.TabIndex = 17;
+            this.btnDoiMK.Text = "Đổi mật khẩu";
+            this.btnDoiMK.UseVisualStyleBackColor = true;
+            this.btnDoiMK.Click += new System.EventHandler(this.btnClick_Change);
             // 
-            // button7
+            // btnXemca
             // 
-            this.button7.Location = new System.Drawing.Point(26, 178);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(105, 65);
-            this.button7.TabIndex = 18;
-            this.button7.Text = "Xem ca làm";
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.ShowWorkShifts);
+            this.btnXemca.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXemca.Location = new System.Drawing.Point(22, 176);
+            this.btnXemca.Name = "btnXemca";
+            this.btnXemca.Size = new System.Drawing.Size(158, 43);
+            this.btnXemca.TabIndex = 18;
+            this.btnXemca.Text = "Xem ca làm";
+            this.btnXemca.UseVisualStyleBackColor = true;
+            this.btnXemca.Click += new System.EventHandler(this.ShowWorkShifts);
             // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(26, 261);
+            this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button8.Location = new System.Drawing.Point(22, 230);
             this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(105, 65);
+            this.button8.Size = new System.Drawing.Size(158, 43);
             this.button8.TabIndex = 19;
-            this.button8.Text = "Xem Nhân viên";
+            this.button8.Text = "Xem nhân viên";
             this.button8.UseVisualStyleBackColor = true;
             this.button8.Click += new System.EventHandler(this.ShowUsersList);
             // 
             // cbRollName
             // 
             this.cbRollName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbRollName.Location = new System.Drawing.Point(332, 146);
+            this.cbRollName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbRollName.Location = new System.Drawing.Point(349, 204);
             this.cbRollName.Name = "cbRollName";
-            this.cbRollName.Size = new System.Drawing.Size(121, 24);
+            this.cbRollName.Size = new System.Drawing.Size(256, 33);
             this.cbRollName.TabIndex = 20;
+            // 
+            // label4
+            // 
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(12, 11);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(779, 57);
+            this.label4.TabIndex = 21;
+            this.label4.Text = "Nhà hàng dotNet - Quản lý nhân viên";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Staffs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(803, 557);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.cbRollName);
             this.Controls.Add(this.button8);
-            this.Controls.Add(this.button7);
-            this.Controls.Add(this.button6);
+            this.Controls.Add(this.btnXemca);
+            this.Controls.Add(this.btnDoiMK);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtSearch);
@@ -246,7 +276,7 @@ namespace management
             this.Controls.Add(this.txtPass);
             this.Controls.Add(this.txtAcc);
             this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.btnXemMK);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label3);
@@ -269,7 +299,7 @@ namespace management
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnXemMK;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.TextBox txtAcc;
         private System.Windows.Forms.TextBox txtPass;
@@ -278,9 +308,10 @@ namespace management
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button btnDoiMK;
+        private System.Windows.Forms.Button btnXemca;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.ComboBox cbRollName;
+        private System.Windows.Forms.Label label4;
     }
 }

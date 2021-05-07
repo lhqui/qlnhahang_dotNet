@@ -35,14 +35,16 @@ namespace management
             this.btnViewOrder = new System.Windows.Forms.Button();
             this.dataOrderGridView1 = new System.Windows.Forms.DataGridView();
             this.btnGetBill = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataOrderGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnChooseTable
             // 
-            this.btnChooseTable.Location = new System.Drawing.Point(46, 55);
+            this.btnChooseTable.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChooseTable.Location = new System.Drawing.Point(17, 95);
             this.btnChooseTable.Name = "btnChooseTable";
-            this.btnChooseTable.Size = new System.Drawing.Size(105, 55);
+            this.btnChooseTable.Size = new System.Drawing.Size(144, 55);
             this.btnChooseTable.TabIndex = 1;
             this.btnChooseTable.Text = "Tạo mới";
             this.btnChooseTable.UseVisualStyleBackColor = true;
@@ -50,9 +52,10 @@ namespace management
             // 
             // btnChangeTable
             // 
-            this.btnChangeTable.Location = new System.Drawing.Point(46, 125);
+            this.btnChangeTable.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChangeTable.Location = new System.Drawing.Point(17, 231);
             this.btnChangeTable.Name = "btnChangeTable";
-            this.btnChangeTable.Size = new System.Drawing.Size(105, 55);
+            this.btnChangeTable.Size = new System.Drawing.Size(144, 55);
             this.btnChangeTable.TabIndex = 2;
             this.btnChangeTable.Text = "Đổi bàn";
             this.btnChangeTable.UseVisualStyleBackColor = true;
@@ -60,21 +63,24 @@ namespace management
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(46, 385);
+            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(17, 367);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(105, 42);
+            this.button3.Size = new System.Drawing.Size(144, 55);
             this.button3.TabIndex = 3;
-            this.button3.Text = "Tro Lai";
+            this.button3.Text = "Trở lại";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.btnBack);
             // 
             // btnViewOrder
             // 
-            this.btnViewOrder.Location = new System.Drawing.Point(46, 197);
+            this.btnViewOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnViewOrder.Location = new System.Drawing.Point(17, 163);
             this.btnViewOrder.Name = "btnViewOrder";
-            this.btnViewOrder.Size = new System.Drawing.Size(105, 55);
+            this.btnViewOrder.Size = new System.Drawing.Size(144, 55);
             this.btnViewOrder.TabIndex = 4;
-            this.btnViewOrder.Text = "Xem order";
+            this.btnViewOrder.Text = "Xem đơn";
             this.btnViewOrder.UseVisualStyleBackColor = true;
             this.btnViewOrder.Click += new System.EventHandler(this.ViewOrder);
             // 
@@ -83,7 +89,7 @@ namespace management
             this.dataOrderGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataOrderGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataOrderGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataOrderGridView1.Location = new System.Drawing.Point(195, 55);
+            this.dataOrderGridView1.Location = new System.Drawing.Point(178, 74);
             this.dataOrderGridView1.MultiSelect = false;
             this.dataOrderGridView1.Name = "dataOrderGridView1";
             this.dataOrderGridView1.ReadOnly = true;
@@ -96,19 +102,31 @@ namespace management
             // 
             // btnGetBill
             // 
-            this.btnGetBill.Location = new System.Drawing.Point(46, 267);
+            this.btnGetBill.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGetBill.Location = new System.Drawing.Point(17, 299);
             this.btnGetBill.Name = "btnGetBill";
-            this.btnGetBill.Size = new System.Drawing.Size(105, 55);
+            this.btnGetBill.Size = new System.Drawing.Size(144, 55);
             this.btnGetBill.TabIndex = 6;
-            this.btnGetBill.Text = "Tinh Tien";
+            this.btnGetBill.Text = "Thanh toán";
             this.btnGetBill.UseVisualStyleBackColor = true;
             this.btnGetBill.Click += new System.EventHandler(this.PayOrder);
+            // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(768, 57);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Nhà hàng dotNet - Gọi món";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Orders
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(792, 462);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnGetBill);
             this.Controls.Add(this.dataOrderGridView1);
             this.Controls.Add(this.btnViewOrder);
@@ -129,5 +147,6 @@ namespace management
         private System.Windows.Forms.Button btnViewOrder;
         private System.Windows.Forms.DataGridView dataOrderGridView1;
         private System.Windows.Forms.Button btnGetBill;
+        private System.Windows.Forms.Label label1;
     }
 }

@@ -61,9 +61,11 @@ namespace management
 
         private void ShowWorkShifts(object sender, EventArgs e)
         {
-            if(isUsersShow == false)
+            if(isUsersShow == true)
             {
-                isUsersShow = true;
+                isUsersShow = false;
+                btnXemMK.Enabled = false;
+                btnDoiMK.Enabled = false;
                 ShowDataToGridView();
             } else
             {
@@ -75,9 +77,11 @@ namespace management
 
         private void ShowUsersList(object sender, EventArgs e)
         {
-            if (isUsersShow == true)
+            if (isUsersShow == false)
             {
-                isUsersShow = false;
+                isUsersShow = true;
+                btnXemMK.Enabled = true;
+                btnDoiMK.Enabled = true;
                 ShowDataToGridView();
             }
             else

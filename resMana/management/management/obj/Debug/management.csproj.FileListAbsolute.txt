@@ -36,3 +36,40 @@ D:\A_nam4\DotNET\PjDotNet\resMana\management\management\obj\Debug\management.Add
 D:\A_nam4\DotNET\PjDotNet\resMana\management\management\obj\Debug\management.FoodOrder.resources
 D:\A_nam4\DotNET\PjDotNet\resMana\management\management\obj\Debug\management.GetBill.resources
 D:\A_nam4\DotNET\PjDotNet\resMana\management\management\obj\Debug\management.Total.resources
+E:\4th year\2- .NET\grp-pj\code\resMana\management\management\bin\Debug\management.exe.config
+E:\4th year\2- .NET\grp-pj\code\resMana\management\management\bin\Debug\management.exe
+E:\4th year\2- .NET\grp-pj\code\resMana\management\management\bin\Debug\management.pdb
+E:\4th year\2- .NET\grp-pj\code\resMana\management\management\bin\Debug\Google.Protobuf.dll
+E:\4th year\2- .NET\grp-pj\code\resMana\management\management\bin\Debug\Zstandard.Net.dll
+E:\4th year\2- .NET\grp-pj\code\resMana\management\management\bin\Debug\K4os.Compression.LZ4.Streams.dll
+E:\4th year\2- .NET\grp-pj\code\resMana\management\management\bin\Debug\BouncyCastle.Crypto.dll
+E:\4th year\2- .NET\grp-pj\code\resMana\management\management\bin\Debug\Ubiety.Dns.Core.dll
+E:\4th year\2- .NET\grp-pj\code\resMana\management\management\bin\Debug\Renci.SshNet.dll
+E:\4th year\2- .NET\grp-pj\code\resMana\management\management\bin\Debug\System.Memory.dll
+E:\4th year\2- .NET\grp-pj\code\resMana\management\management\bin\Debug\System.Buffers.dll
+E:\4th year\2- .NET\grp-pj\code\resMana\management\management\bin\Debug\K4os.Compression.LZ4.dll
+E:\4th year\2- .NET\grp-pj\code\resMana\management\management\bin\Debug\K4os.Hash.xxHash.dll
+E:\4th year\2- .NET\grp-pj\code\resMana\management\management\bin\Debug\System.Numerics.Vectors.dll
+E:\4th year\2- .NET\grp-pj\code\resMana\management\management\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+E:\4th year\2- .NET\grp-pj\code\resMana\management\management\bin\Debug\MySql.Data.xml
+E:\4th year\2- .NET\grp-pj\code\resMana\management\management\obj\Debug\management.csprojAssemblyReference.cache
+E:\4th year\2- .NET\grp-pj\code\resMana\management\management\obj\Debug\management.exe.config
+E:\4th year\2- .NET\grp-pj\code\resMana\management\management\obj\Debug\management.AddFood.resources
+E:\4th year\2- .NET\grp-pj\code\resMana\management\management\obj\Debug\management.ChangePass.resources
+E:\4th year\2- .NET\grp-pj\code\resMana\management\management\obj\Debug\management.FoodOrder.resources
+E:\4th year\2- .NET\grp-pj\code\resMana\management\management\obj\Debug\management.Foods.resources
+E:\4th year\2- .NET\grp-pj\code\resMana\management\management\obj\Debug\management.GetBill.resources
+E:\4th year\2- .NET\grp-pj\code\resMana\management\management\obj\Debug\management.GetCustomeInfo.resources
+E:\4th year\2- .NET\grp-pj\code\resMana\management\management\obj\Debug\management.Login.resources
+E:\4th year\2- .NET\grp-pj\code\resMana\management\management\obj\Debug\management.Menu.resources
+E:\4th year\2- .NET\grp-pj\code\resMana\management\management\obj\Debug\management.Orders.resources
+E:\4th year\2- .NET\grp-pj\code\resMana\management\management\obj\Debug\management.Properties.Resources.resources
+E:\4th year\2- .NET\grp-pj\code\resMana\management\management\obj\Debug\management.SelectTable.resources
+E:\4th year\2- .NET\grp-pj\code\resMana\management\management\obj\Debug\management.ShiftRegis.resources
+E:\4th year\2- .NET\grp-pj\code\resMana\management\management\obj\Debug\management.Staffs.resources
+E:\4th year\2- .NET\grp-pj\code\resMana\management\management\obj\Debug\management.Total.resources
+E:\4th year\2- .NET\grp-pj\code\resMana\management\management\obj\Debug\management.csproj.GenerateResource.cache
+E:\4th year\2- .NET\grp-pj\code\resMana\management\management\obj\Debug\management.csproj.CoreCompileInputs.cache
+E:\4th year\2- .NET\grp-pj\code\resMana\management\management\obj\Debug\management.csproj.CopyComplete
+E:\4th year\2- .NET\grp-pj\code\resMana\management\management\obj\Debug\management.exe
+E:\4th year\2- .NET\grp-pj\code\resMana\management\management\obj\Debug\management.pdb
