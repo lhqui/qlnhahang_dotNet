@@ -73,3 +73,40 @@ E:\4th year\2- .NET\grp-pj\code\resMana\management\management\obj\Debug\manageme
 E:\4th year\2- .NET\grp-pj\code\resMana\management\management\obj\Debug\management.csproj.CopyComplete
 E:\4th year\2- .NET\grp-pj\code\resMana\management\management\obj\Debug\management.exe
 E:\4th year\2- .NET\grp-pj\code\resMana\management\management\obj\Debug\management.pdb
+E:\At_school\THE_4TH_YEAR\HK2\2a_LapTrinh.Net\Project\Project_P\resMana\management\management\bin\Debug\management.exe.config
+E:\At_school\THE_4TH_YEAR\HK2\2a_LapTrinh.Net\Project\Project_P\resMana\management\management\bin\Debug\management.exe
+E:\At_school\THE_4TH_YEAR\HK2\2a_LapTrinh.Net\Project\Project_P\resMana\management\management\bin\Debug\management.pdb
+E:\At_school\THE_4TH_YEAR\HK2\2a_LapTrinh.Net\Project\Project_P\resMana\management\management\bin\Debug\Google.Protobuf.dll
+E:\At_school\THE_4TH_YEAR\HK2\2a_LapTrinh.Net\Project\Project_P\resMana\management\management\bin\Debug\Zstandard.Net.dll
+E:\At_school\THE_4TH_YEAR\HK2\2a_LapTrinh.Net\Project\Project_P\resMana\management\management\bin\Debug\K4os.Compression.LZ4.Streams.dll
+E:\At_school\THE_4TH_YEAR\HK2\2a_LapTrinh.Net\Project\Project_P\resMana\management\management\bin\Debug\BouncyCastle.Crypto.dll
+E:\At_school\THE_4TH_YEAR\HK2\2a_LapTrinh.Net\Project\Project_P\resMana\management\management\bin\Debug\Ubiety.Dns.Core.dll
+E:\At_school\THE_4TH_YEAR\HK2\2a_LapTrinh.Net\Project\Project_P\resMana\management\management\bin\Debug\Renci.SshNet.dll
+E:\At_school\THE_4TH_YEAR\HK2\2a_LapTrinh.Net\Project\Project_P\resMana\management\management\bin\Debug\System.Memory.dll
+E:\At_school\THE_4TH_YEAR\HK2\2a_LapTrinh.Net\Project\Project_P\resMana\management\management\bin\Debug\System.Buffers.dll
+E:\At_school\THE_4TH_YEAR\HK2\2a_LapTrinh.Net\Project\Project_P\resMana\management\management\bin\Debug\K4os.Compression.LZ4.dll
+E:\At_school\THE_4TH_YEAR\HK2\2a_LapTrinh.Net\Project\Project_P\resMana\management\management\bin\Debug\K4os.Hash.xxHash.dll
+E:\At_school\THE_4TH_YEAR\HK2\2a_LapTrinh.Net\Project\Project_P\resMana\management\management\bin\Debug\System.Numerics.Vectors.dll
+E:\At_school\THE_4TH_YEAR\HK2\2a_LapTrinh.Net\Project\Project_P\resMana\management\management\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+E:\At_school\THE_4TH_YEAR\HK2\2a_LapTrinh.Net\Project\Project_P\resMana\management\management\bin\Debug\MySql.Data.xml
+E:\At_school\THE_4TH_YEAR\HK2\2a_LapTrinh.Net\Project\Project_P\resMana\management\management\obj\Debug\management.csprojAssemblyReference.cache
+E:\At_school\THE_4TH_YEAR\HK2\2a_LapTrinh.Net\Project\Project_P\resMana\management\management\obj\Debug\management.exe.config
+E:\At_school\THE_4TH_YEAR\HK2\2a_LapTrinh.Net\Project\Project_P\resMana\management\management\obj\Debug\management.AddFood.resources
+E:\At_school\THE_4TH_YEAR\HK2\2a_LapTrinh.Net\Project\Project_P\resMana\management\management\obj\Debug\management.ChangePass.resources
+E:\At_school\THE_4TH_YEAR\HK2\2a_LapTrinh.Net\Project\Project_P\resMana\management\management\obj\Debug\management.FoodOrder.resources
+E:\At_school\THE_4TH_YEAR\HK2\2a_LapTrinh.Net\Project\Project_P\resMana\management\management\obj\Debug\management.Foods.resources
+E:\At_school\THE_4TH_YEAR\HK2\2a_LapTrinh.Net\Project\Project_P\resMana\management\management\obj\Debug\management.GetBill.resources
+E:\At_school\THE_4TH_YEAR\HK2\2a_LapTrinh.Net\Project\Project_P\resMana\management\management\obj\Debug\management.GetCustomeInfo.resources
+E:\At_school\THE_4TH_YEAR\HK2\2a_LapTrinh.Net\Project\Project_P\resMana\management\management\obj\Debug\management.Login.resources
+E:\At_school\THE_4TH_YEAR\HK2\2a_LapTrinh.Net\Project\Project_P\resMana\management\management\obj\Debug\management.Menu.resources
+E:\At_school\THE_4TH_YEAR\HK2\2a_LapTrinh.Net\Project\Project_P\resMana\management\management\obj\Debug\management.Orders.resources
+E:\At_school\THE_4TH_YEAR\HK2\2a_LapTrinh.Net\Project\Project_P\resMana\management\management\obj\Debug\management.Properties.Resources.resources
+E:\At_school\THE_4TH_YEAR\HK2\2a_LapTrinh.Net\Project\Project_P\resMana\management\management\obj\Debug\management.SelectTable.resources
+E:\At_school\THE_4TH_YEAR\HK2\2a_LapTrinh.Net\Project\Project_P\resMana\management\management\obj\Debug\management.ShiftRegis.resources
+E:\At_school\THE_4TH_YEAR\HK2\2a_LapTrinh.Net\Project\Project_P\resMana\management\management\obj\Debug\management.Staffs.resources
+E:\At_school\THE_4TH_YEAR\HK2\2a_LapTrinh.Net\Project\Project_P\resMana\management\management\obj\Debug\management.Total.resources
+E:\At_school\THE_4TH_YEAR\HK2\2a_LapTrinh.Net\Project\Project_P\resMana\management\management\obj\Debug\management.csproj.GenerateResource.cache
+E:\At_school\THE_4TH_YEAR\HK2\2a_LapTrinh.Net\Project\Project_P\resMana\management\management\obj\Debug\management.csproj.CoreCompileInputs.cache
+E:\At_school\THE_4TH_YEAR\HK2\2a_LapTrinh.Net\Project\Project_P\resMana\management\management\obj\Debug\management.csproj.CopyComplete
+E:\At_school\THE_4TH_YEAR\HK2\2a_LapTrinh.Net\Project\Project_P\resMana\management\management\obj\Debug\management.exe
+E:\At_school\THE_4TH_YEAR\HK2\2a_LapTrinh.Net\Project\Project_P\resMana\management\management\obj\Debug\management.pdb

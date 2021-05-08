@@ -89,8 +89,10 @@ namespace management
         }
         public void ShowOrderInOperate()
         {
-                String query = "select ordersid, tablename, opentime, customername, statusid " +
-                        "from orders inner join tablest on orders.tableid = tablest.tableid where statusid=2";
+                String query = "select ordersid, tablename, opentime, customername, statusid FROM orders " +
+                        "inner join tablest on orders.tableid = tablest.tableid " +
+                        "WHERE ORDERSID NOT IN (SELECT ORDERSID FROM bills)";
+                Console.WriteLine(query);
                 db.ShowDt(query);
                 dataOrderGridView1.DataSource = db.dt;
                 dataOrderGridView1.Columns[0].HeaderCell.Value = "STT";
