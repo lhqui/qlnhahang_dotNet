@@ -94,11 +94,11 @@ namespace management
             // button5
             // 
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(196, 268);
+            this.button5.Location = new System.Drawing.Point(171, 268);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(105, 43);
+            this.button5.Size = new System.Drawing.Size(133, 43);
             this.button5.TabIndex = 5;
-            this.button5.Text = "Thoát";
+            this.button5.Text = "Đăng xuất";
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.btnExit);
             // 

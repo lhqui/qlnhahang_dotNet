@@ -42,7 +42,7 @@ namespace management
             this.btnChoose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnChoose.Location = new System.Drawing.Point(17, 99);
             this.btnChoose.Name = "btnChoose";
-            this.btnChoose.Size = new System.Drawing.Size(143, 55);
+            this.btnChoose.Size = new System.Drawing.Size(143, 48);
             this.btnChoose.TabIndex = 1;
             this.btnChoose.Text = "Chọn bàn";
             this.btnChoose.UseVisualStyleBackColor = true;
@@ -53,7 +53,7 @@ namespace management
             this.btnChange.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnChange.Location = new System.Drawing.Point(17, 171);
             this.btnChange.Name = "btnChange";
-            this.btnChange.Size = new System.Drawing.Size(143, 55);
+            this.btnChange.Size = new System.Drawing.Size(143, 48);
             this.btnChange.TabIndex = 2;
             this.btnChange.Text = "Đổi bàn";
             this.btnChange.UseVisualStyleBackColor = true;
@@ -62,11 +62,11 @@ namespace management
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(18, 242);
+            this.button3.Location = new System.Drawing.Point(18, 382);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(143, 55);
+            this.button3.Size = new System.Drawing.Size(143, 48);
             this.button3.TabIndex = 3;
-            this.button3.Text = "Thoát";
+            this.button3.Text = "Trở lại";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.ExitToOrder);
             // 
