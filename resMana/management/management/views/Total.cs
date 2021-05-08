@@ -41,6 +41,7 @@ namespace management
                 db.ShowDt(query);
                 totalDataGridView1.DataSource = db.dt;
                 totalDataGridView1.Columns[0].HeaderCell.Value = "STT";
+                totalDataGridView1.Columns[0].Visible = false;
                 totalDataGridView1.Columns[1].HeaderCell.Value = "Mã order";
                 totalDataGridView1.Columns[2].HeaderCell.Value = "Tên nhân viên";
                 totalDataGridView1.Columns[3].HeaderCell.Value = "Thời gian";
