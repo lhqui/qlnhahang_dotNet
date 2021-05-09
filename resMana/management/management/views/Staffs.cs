@@ -208,6 +208,7 @@ namespace management
         {
             GetIdUserInCell();
             String query = "delete from staffs where staffid=" + this.userId;
+<<<<<<< HEAD
             String queryDeleteFk = "delete from SHIFT where STAFFID = " + this.userId;
             String queryDeleteFk1 = "delete from ORDERLIST where STAFFID = " + this.userId;
             String queryDeleteFk2 = "delete from BILLS where STAFFID = " + this.userId;
@@ -218,6 +219,17 @@ namespace management
                 db.ExecuteNonQuery(queryDeleteFk);
                 db.ExecuteNonQuery(queryDeleteFk1);
                 db.ExecuteNonQuery(queryDeleteFk2);
+=======
+            String queryDeleteFkShift = "delete from SHIFT where STAFFID = " + this.userId;
+            String queryDeleteFkOrderList = "delete from orderlist where STAFFID = " + this.userId;
+            String queryDeleteFkBill = "delete from bills where STAFFID = " + this.userId;
+            if (CountUserFromDb() == true  && user.OriginlUser(this.userId) == false)
+            {
+                // MessageBox.Show(query);
+                db.ExecuteNonQuery(queryDeleteFkShift);
+                db.ExecuteNonQuery(queryDeleteFkOrderList);
+                db.ExecuteNonQuery(queryDeleteFkBill);
+>>>>>>> 03fcc5b302c2f31a9463115628320b8fe530e487
                 db.ExecuteNonQuery(query);
                 Message(db.count);
                 clear();

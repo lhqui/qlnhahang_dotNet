@@ -13,7 +13,8 @@ namespace management
     {
         private static String uId = "";
         public Dictionary<String, String> users = new Dictionary<string, string>();
-        public LinkedList<String> startHours = new LinkedList<string>();
+        private LinkedList<int> startShift = new LinkedList<int>();
+        private LinkedList<int> endShift = new LinkedList<int>();
         public Dictionary<int, int> workHoursOfUser = new Dictionary<int, int>();
         DBConnect db = new DBConnect();
 
@@ -70,60 +71,54 @@ namespace management
             }
             return false;
         }
-        public bool CheckIsWorkingHour()
+        public bool CheckIsWorkingHour(String uId)
         {
-            int m = 0;
-            //int j = 0;
-            workHoursOfUser.Clear();
-            foreach (String n in startHours)
-            {
-                workHoursOfUser.Add(m, Int32.Parse(n));
-                m += 1; 
-            }
+
+            GetStartHoursFromDb(uId);
+
             // kiem tra ca thu 1
-            for(int i=0; i<workHoursOfUser.Count; i++)
+            int size = startShift.Count;
+            Console.WriteLine(size.ToString());
+            for (int i=0; i<size; i++)
             {
-                String starTime = DateTime.Now.ToString("yyyy-MM-dd") + " " + workHoursOfUser[0].ToString() + ":00";
-                int nextHour = workHoursOfUser[0] + i;
-                String endTime = DateTime.Now.ToString("yyyy-MM-dd") + " " + nextHour.ToString() + ":00";
-                if (CheckExistStartAndEnd(starTime, endTime) == true)
+                int starTime = startShift.ElementAt(i);
+                int endTime = endShift.ElementAt(i);
+                int currentime = int.Parse(DateTime.Now.ToString("HH"));
+                if (currentime >= 22)
                 {
+                    return false;
+                } else if(starTime <= currentime && currentime <= endTime)
+                {
+                    //Console.WriteLine(starTime);
+                    //Console.WriteLine(endTime);
                     return true;
-                }
+                } 
+              
             }
             return false;
         }
+   
         public void GetStartHoursFromDb(String uId)
         {
-            startHours.Clear();
+            workHoursOfUser.Clear();
             String todayTime = DateTime.Now.ToString("yyyy-MM-dd HH:MM");
-            String query = "select CONVERT(VARCHAR(5),startime,108) AS [Time] from shift " +
-                "where staffid=" + uId + "and startime>='" + todayTime + "'";
+            String query = "select CONVERT(VARCHAR(5),startime,108) AS [TimeStart], CONVERT(VARCHAR(5),endtime,108) AS [TimeEnd] " +
+                "from shift where staffid="+uId+" and startime>='"+ todayTime+"'";
+           // Console.WriteLine(todayTime);
             //Console.WriteLine(query);
-            db.Query(query);
+           db.Query(query);
             if(db.count > 0)
             {
                 SqlDataReader reader = db.ExecuteReader(query);
                 while(reader.Read())
                 {
-                    startHours.AddLast(reader["Time"].ToString().Substring(0,2));
+                    startShift.AddLast(int.Parse(reader["TimeStart"].ToString().Substring(0, 2)));
+                    endShift.AddLast(int.Parse(reader["TimeEnd"].ToString().Substring(0, 2)));
                 }
 
             }
         }
-        public bool CheckExistStartAndEnd(String startime, String endtime )
-        {
-            String startShift = DateTime.Now.ToString("yyyy-MM-dd")+ " " + startime +":00";
-            String endShift = DateTime.Now.ToString("yyyy-MM-dd") + " " + endtime + ":00";
-            String query = "select CONVERT(VARCHAR(5),startime,108) AS [Time] from shift " +
-                "where staffid=" + users["uid"] + "and startime>='" + startShift + "'" +
-                " and endtime<='" + endShift;
-            if(db.count>0)
-            {
-                return true;
-            }
-            return false;
-        }
+
 
     }
 }
