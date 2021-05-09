@@ -203,8 +203,11 @@ namespace management
             GetFoodIdInRow();
             DialogResult diag = MessageBox.Show("Bạn có muốn xóa?", "Xóa", MessageBoxButtons.YesNo);
             String query = "delete from foods where foodid=" + this.foodid;
+            String deleteQueryFk = "delete from ORDERLIST where FOODID=" + this.foodid;
             if (diag == DialogResult.Yes && foodid != "")
             {
+                //Console.WriteLine(query);
+                db.ExecuteNonQuery(deleteQueryFk);
                 db.ExecuteNonQuery(query);
                 Message(db.count);
                 Clear();

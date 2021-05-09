@@ -43,6 +43,8 @@ namespace management
                     db.ExecuteNonQuery(queryInsert);
                     if (db.count != 0)
                     {
+                        cbStartTime.Items.Clear();
+                        cbEndTime.Items.Clear();
                         MessageBox.Show("Đăng ký thành công");
                     }
                     else
