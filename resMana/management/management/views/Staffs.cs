@@ -66,6 +66,8 @@ namespace management
                 isUsersShow = false;
                 btnXemMK.Enabled = false;
                 btnDoiMK.Enabled = false;
+                btnDelete.Enabled = false;
+                btnShift.Enabled = false;
                 ShowDataToGridView();
             } else
             {
@@ -82,6 +84,8 @@ namespace management
                 isUsersShow = true;
                 btnXemMK.Enabled = true;
                 btnDoiMK.Enabled = true;
+                btnDelete.Enabled = true;
+                btnShift.Enabled = true;
                 ShowDataToGridView();
             }
             else
@@ -141,6 +145,7 @@ namespace management
                     db.ExecuteNonQuery(query);
                    Message(db.count);
                     // MessageBox.Show(query);
+                    clear();
                     ShowDataToGridView();
 
                 } else
@@ -202,6 +207,7 @@ namespace management
                // MessageBox.Show(query);
                 db.ExecuteNonQuery(query);
                 Message(db.count);
+                clear();
                 ShowDataToGridView();
 
 
@@ -220,7 +226,7 @@ namespace management
         }
         private void ShowDataToGridView()
         {
-            dataUserGridView1.DataSource = null;
+            //dataUserGridView1.DataSource = null;
             if(isUsersShow == true)
             {
                 String query = "select staffid, staffname, rollname from staffs inner join staffroll " +
@@ -233,6 +239,7 @@ namespace management
                 dataUserGridView1.Columns[0].Visible = false;
                 dataUserGridView1.Columns[1].HeaderCell.Value = "Họ tên";
                 dataUserGridView1.Columns[2].HeaderCell.Value = "Chức vụ";
+
             } else
             {
                 String today = DateTime.Now.ToString("MM/dd/yyyy");
@@ -284,6 +291,12 @@ namespace management
                 }
             }
 
+        }
+        private void clear()
+        {
+            txtAcc.Text = "";
+            txtName.Text = "";
+            txtPass.Text = "";
         }
     }
 }
