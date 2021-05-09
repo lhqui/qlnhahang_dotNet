@@ -10,7 +10,7 @@ namespace management
     {
         private static Dictionary<String, String> configs = new Dictionary<string, string>()
         {
-            {"server","DESKTOP-HTUI6SU\\SQLEXPRESS" },
+            {"server","DESKTOP-2JU4MVK\\SQLEXPRESS" },
             { "db","nhahang"},
             {"is","true" }
         };

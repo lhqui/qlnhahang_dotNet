@@ -36,14 +36,14 @@ namespace management
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.btnXemMK = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.txtAcc = new System.Windows.Forms.TextBox();
             this.txtPass = new System.Windows.Forms.TextBox();
             this.txtName = new System.Windows.Forms.TextBox();
             this.lbSearch = new System.Windows.Forms.Label();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnShift = new System.Windows.Forms.Button();
             this.btnDoiMK = new System.Windows.Forms.Button();
             this.btnXemca = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
@@ -131,16 +131,16 @@ namespace management
             this.btnXemMK.UseVisualStyleBackColor = true;
             this.btnXemMK.Click += new System.EventHandler(this.ViewPassword);
             // 
-            // button5
+            // btnDelete
             // 
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(629, 131);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(155, 41);
-            this.button5.TabIndex = 8;
-            this.button5.Text = "Xóa";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.DeleteUser);
+            this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.Location = new System.Drawing.Point(629, 131);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(155, 41);
+            this.btnDelete.TabIndex = 8;
+            this.btnDelete.Text = "Xóa";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.DeleteUser);
             // 
             // txtAcc
             // 
@@ -195,16 +195,16 @@ namespace management
             this.label5.TabIndex = 15;
             this.label5.Text = "Chức vụ:";
             // 
-            // button3
+            // btnShift
             // 
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(22, 122);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(158, 43);
-            this.button3.TabIndex = 16;
-            this.button3.Text = "Sắp xếp ca làm";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.btnClick_Regis);
+            this.btnShift.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnShift.Location = new System.Drawing.Point(22, 122);
+            this.btnShift.Name = "btnShift";
+            this.btnShift.Size = new System.Drawing.Size(158, 43);
+            this.btnShift.TabIndex = 16;
+            this.btnShift.Text = "Sắp xếp ca làm";
+            this.btnShift.UseVisualStyleBackColor = true;
+            this.btnShift.Click += new System.EventHandler(this.btnClick_Regis);
             // 
             // btnDoiMK
             // 
@@ -268,14 +268,14 @@ namespace management
             this.Controls.Add(this.button8);
             this.Controls.Add(this.btnXemca);
             this.Controls.Add(this.btnDoiMK);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.btnShift);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.lbSearch);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.txtPass);
             this.Controls.Add(this.txtAcc);
-            this.Controls.Add(this.button5);
+            this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnXemMK);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -300,14 +300,14 @@ namespace management
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button btnXemMK;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.TextBox txtAcc;
         private System.Windows.Forms.TextBox txtPass;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label lbSearch;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnShift;
         private System.Windows.Forms.Button btnDoiMK;
         private System.Windows.Forms.Button btnXemca;
         private System.Windows.Forms.Button button8;
