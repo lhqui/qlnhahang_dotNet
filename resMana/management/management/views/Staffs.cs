@@ -17,6 +17,7 @@ namespace management
         private bool isUsersShow = true;
         private Users user;
         private string userId = "";
+        private string userName = "";
         public Staffs(Users user)
         {
             InitializeComponent();
@@ -184,9 +185,13 @@ namespace management
         }
         private void GetIdUserInCell()
         {
-            int n = dataUserGridView1.CurrentCell.RowIndex;
-            DataGridViewRow row = this.dataUserGridView1.Rows[n];
-            userId = row.Cells["staffid"].Value.ToString(); ;
+            if(isUsersShow == true)
+            {
+                int n = dataUserGridView1.CurrentCell.RowIndex;
+                DataGridViewRow row = this.dataUserGridView1.Rows[n];
+                userId = row.Cells["staffid"].Value.ToString(); ;
+            } 
+
         }
         private bool CountUserFromDb()
         {
