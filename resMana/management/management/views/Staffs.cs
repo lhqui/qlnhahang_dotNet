@@ -201,10 +201,13 @@ namespace management
 
         private void DeleteUser(object sender, EventArgs e)
         {
+            GetIdUserInCell();
             String query = "delete from staffs where staffid=" + this.userId;
-            if(CountUserFromDb() == true && user.CheckPermission() == true && user.OriginlUser(this.userId) == false)
+            String queryDeleteFk = "delete from SHIFT where STAFFID = " + this.userId;
+            if (CountUserFromDb() == true  && user.OriginlUser(this.userId) == false)
             {
-               // MessageBox.Show(query);
+                // MessageBox.Show(query);
+                db.ExecuteNonQuery(queryDeleteFk);
                 db.ExecuteNonQuery(query);
                 Message(db.count);
                 clear();
@@ -260,9 +263,7 @@ namespace management
         }
         private void Search()
         {
-            if(txtSearch.Text != "")
-            {
-                if (isUsersShow == true)
+             if (isUsersShow == true)
                 {
                     String queryStaff = "select staffid, staffname, rollname from staffs inner join staffroll "
                         + "on staffs.rollid = staffroll.rollid where staffid like N'%"
@@ -289,7 +290,7 @@ namespace management
                     dataUserGridView1.Columns[1].HeaderCell.Value = "Ca bắt đầu";
                     dataUserGridView1.Columns[2].HeaderCell.Value = "Ca kết thúc";
                 }
-            }
+       
 
         }
         private void clear()

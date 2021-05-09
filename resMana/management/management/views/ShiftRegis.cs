@@ -12,8 +12,6 @@ namespace management
 {
     public partial class ShiftRegis : Form
     {
-        LinkedList<int> workHours = new LinkedList<int>();
-        LinkedList<int> listEndtime = new LinkedList<int>();
         private String userId;
         public ShiftRegis(String userId)
         {
@@ -23,100 +21,92 @@ namespace management
 
         private void OnClick_Regis(object sender, EventArgs e)
         {
-            DBConnect db = new DBConnect();
-            String startTime = workDatepicker.Value.ToString("yyyy-MM-dd") + " " + cbStartTime.Text + ":00";
-            String endTime = workDatepicker.Value.ToString("yyyy-MM-dd") + " " + cbEndTime.Text + ":00";
-            //Kiem tra ca lam co trung
-            String queryCheck = "select * from shift where staffid=" + this.userId + " and startime='"
-                + startTime + "' and endtime='" + endTime + "'";
-            db.Query(queryCheck);
-            if(db.count > 0)
+            if(cbStartTime.Text !="" && cbEndTime.Text != "")
             {
-                MessageBox.Show("Ca làm đã được đăng ký");
-            } else
-            {
-                // dang ky ca lam vao db
-                String[] arr = { this.userId, startTime, endTime };
-                String insertValue = db.StringValue(arr);
-                String queryInsert = "insert into shift values " + insertValue;
-                db.ExecuteNonQuery(queryInsert);
-                if (db.count != 0)
+                DBConnect db = new DBConnect();
+                String startTime = workDatepicker.Value.ToString("yyyy-MM-dd") + " " + cbStartTime.Text + ":00";
+                String endTime = workDatepicker.Value.ToString("yyyy-MM-dd") + " " + cbEndTime.Text + ":00";
+                //Kiem tra ca lam co trung
+                String queryCheck = "select * from shift where staffid=" + this.userId + " and startime='"
+                    + startTime + "' and endtime='" + endTime + "'";
+                db.Query(queryCheck);
+                if (db.count > 0)
                 {
-                    MessageBox.Show("Đăng ký thành công");
+                    MessageBox.Show("Ca làm đã được đăng ký");
                 }
                 else
                 {
-                    MessageBox.Show("Đăng ký thất bại");
+                    // dang ky ca lam vao db
+                    String[] arr = { this.userId, startTime, endTime };
+                    String insertValue = db.StringValue(arr);
+                    String queryInsert = "insert into shift values " + insertValue;
+                    db.ExecuteNonQuery(queryInsert);
+                    if (db.count != 0)
+                    {
+                        MessageBox.Show("Đăng ký thành công");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Đăng ký thất bại");
+                    }
                 }
+                
+            } else
+            {
+                MessageBox.Show("Xin Chọn ca làm!");
             }
+ 
             //MessageBox.Show(query);
-            Console.WriteLine(queryCheck);
+            //Console.WriteLine(queryCheck);
             
         }
 
 
+
         private void OnClick_Starttime(object sender, EventArgs e)
         {
-            int currentHour = Int32.Parse(DateTime.Now.ToString("HH"));
-            // 15 tieng co the lam trong 21 tieng
-            cbEndTime.Items.Clear();
             cbStartTime.Items.Clear();
-            workHours.Clear();
-            
-            if (workDatepicker.Value.Date == DateTime.Now.Date && currentHour > 10)
+            cbEndTime.Items.Clear();
+               
+            int currentHour = Int32.Parse(DateTime.Now.ToString("HH"));
+            // 15 tieng co the lam trong 21 tieng 
+            if (workDatepicker.Value.Date >= DateTime.Now.Date)
             {
-                MessageBox.Show("Hom nay da het ca dang ki");
+               if(workDatepicker.Value.Date == DateTime.Now.Date && currentHour > 21)
+                {
+                    MessageBox.Show("Đã hết ca làm !");
+                } else if (workDatepicker.Value.Date == DateTime.Now.Date)
+                {
+                    for (int i = currentHour+1; i <= 21; i++)
+                    {
+                        cbStartTime.Items.Add(i);
+                    }
+                } else
+                {
+                    for (int i = 8; i <= 21; i++)
+                    {
+                        cbStartTime.Items.Add(i);
+                    }
+                }
             } else
             {
-                if (workDatepicker.Value.Date == DateTime.Now.Date)
-                {
-                    for (int i = 8; i <= 21; i++)
-                    {
-                        if (currentHour < i)
-                        {
-                            //Console.WriteLine(Starthour);
-                            workHours.AddLast(i);
-                        }
-                        //  Starthour++;
-                    }
-                }
-                else
-                {
-                    //listStart.Items.Clear();
-                    for (int i = 8; i <= 21; i++)
-                    {
-                        workHours.AddLast(i);
-                    }
-                }
-                foreach (int num in workHours)
-                {
-                    cbStartTime.Items.Add(num);
-                    //Console.WriteLine(num);
-                }
+                MessageBox.Show("Ngày Không thể đăng ký thêm!");
             }
-
-
-
-
         }
 
         private void OnClick_EndShift(object sender, EventArgs e)
         {
             String selectStartTime = cbStartTime.Text;
-            listEndtime.Clear();
+            cbEndTime.Items.Clear();
+            //workHours.Clear();
 
             if (selectStartTime != "") 
             {
                 // lay value cua starttime
                 for (int i = Int32.Parse(selectStartTime) + 1; i <= 22; i++)
                 {
-                    listEndtime.AddLast(i);
+                    cbEndTime.Items.Add(i);
                 };
-                foreach (int num in listEndtime)
-                {
-                    cbEndTime.Items.Add(num);
-                };
-                // MessageBox.Show(selectStartTime);
             } else
             {
                 MessageBox.Show("Hay chon ca bat dau");
@@ -132,8 +122,7 @@ namespace management
 
         private void BtnClear_listbox(object sender, EventArgs e)
         {
-            workHours.Clear();
-            listEndtime.Clear();
+
             cbStartTime.Items.Clear();
             cbEndTime.Items.Clear();
         }
