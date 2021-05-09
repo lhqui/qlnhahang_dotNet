@@ -40,9 +40,10 @@ namespace management
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(167, 177);
+            this.button1.Location = new System.Drawing.Point(133, 144);
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(116, 41);
+            this.button1.Size = new System.Drawing.Size(87, 33);
             this.button1.TabIndex = 0;
             this.button1.Text = "Đổi";
             this.button1.UseVisualStyleBackColor = true;
@@ -51,60 +52,66 @@ namespace management
             // txtPass1
             // 
             this.txtPass1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPass1.Location = new System.Drawing.Point(237, 82);
+            this.txtPass1.Location = new System.Drawing.Point(202, 67);
+            this.txtPass1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtPass1.Name = "txtPass1";
-            this.txtPass1.Size = new System.Drawing.Size(200, 30);
+            this.txtPass1.Size = new System.Drawing.Size(151, 26);
             this.txtPass1.TabIndex = 2;
             // 
             // txtPass2
             // 
             this.txtPass2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPass2.Location = new System.Drawing.Point(237, 131);
+            this.txtPass2.Location = new System.Drawing.Point(202, 106);
+            this.txtPass2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtPass2.Name = "txtPass2";
-            this.txtPass2.Size = new System.Drawing.Size(200, 30);
+            this.txtPass2.Size = new System.Drawing.Size(151, 26);
             this.txtPass2.TabIndex = 3;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(22, 82);
+            this.label2.Location = new System.Drawing.Point(16, 67);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(129, 25);
+            this.label2.Size = new System.Drawing.Size(108, 20);
             this.label2.TabIndex = 5;
-            this.label2.Text = "Mật khẩu mới";
+            this.label2.Text = "Mật khẩu mới:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(22, 131);
+            this.label3.Location = new System.Drawing.Point(16, 106);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(204, 25);
+            this.label3.Size = new System.Drawing.Size(169, 20);
             this.label3.TabIndex = 6;
-            this.label3.Text = "Nhập lại mật khẩu mới";
+            this.label3.Text = "Nhập lại mật khẩu mới:";
             // 
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 11);
+            this.label1.Location = new System.Drawing.Point(9, 9);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(440, 57);
+            this.label1.Size = new System.Drawing.Size(330, 46);
             this.label1.TabIndex = 7;
             this.label1.Text = "Đổi mật khẩu";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ChangePass
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(464, 234);
+            this.ClientSize = new System.Drawing.Size(376, 190);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtPass2);
             this.Controls.Add(this.txtPass1);
             this.Controls.Add(this.button1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "ChangePass";
             this.Text = "ChangePass";
             this.ResumeLayout(false);

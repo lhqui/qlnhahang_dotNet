@@ -57,14 +57,15 @@ namespace management
             this.dataUserGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataUserGridView1.ColumnHeadersHeight = 29;
             this.dataUserGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dataUserGridView1.Location = new System.Drawing.Point(211, 335);
+            this.dataUserGridView1.Location = new System.Drawing.Point(183, 273);
+            this.dataUserGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataUserGridView1.Name = "dataUserGridView1";
             this.dataUserGridView1.ReadOnly = true;
             this.dataUserGridView1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.dataUserGridView1.RowHeadersWidth = 51;
             this.dataUserGridView1.RowTemplate.Height = 24;
             this.dataUserGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataUserGridView1.Size = new System.Drawing.Size(573, 201);
+            this.dataUserGridView1.Size = new System.Drawing.Size(454, 163);
             this.dataUserGridView1.TabIndex = 0;
             this.dataUserGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CellClick);
             // 
@@ -72,38 +73,42 @@ namespace management
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(206, 84);
+            this.label1.Location = new System.Drawing.Point(167, 68);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(109, 25);
+            this.label1.Size = new System.Drawing.Size(82, 20);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Tài Khoản:";
+            this.label1.Text = "Tài khoản:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(206, 125);
+            this.label2.Location = new System.Drawing.Point(167, 102);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(103, 25);
+            this.label2.Size = new System.Drawing.Size(79, 20);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Mật Khẩu:";
+            this.label2.Text = "Mật khẩu:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(206, 166);
+            this.label3.Location = new System.Drawing.Point(167, 135);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(143, 25);
+            this.label3.Size = new System.Drawing.Size(112, 20);
             this.label3.TabIndex = 3;
             this.label3.Text = "Tên nhân viên:";
             // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(22, 493);
+            this.button1.Location = new System.Drawing.Point(16, 401);
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(158, 43);
+            this.button1.Size = new System.Drawing.Size(118, 35);
             this.button1.TabIndex = 4;
             this.button1.Text = "Trở lại";
             this.button1.UseVisualStyleBackColor = true;
@@ -112,9 +117,10 @@ namespace management
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(629, 85);
+            this.button2.Location = new System.Drawing.Point(504, 65);
+            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(155, 42);
+            this.button2.Size = new System.Drawing.Size(133, 34);
             this.button2.TabIndex = 5;
             this.button2.Text = "Thêm";
             this.button2.UseVisualStyleBackColor = true;
@@ -123,9 +129,10 @@ namespace management
             // btnXemMK
             // 
             this.btnXemMK.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnXemMK.Location = new System.Drawing.Point(629, 178);
+            this.btnXemMK.Location = new System.Drawing.Point(504, 141);
+            this.btnXemMK.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnXemMK.Name = "btnXemMK";
-            this.btnXemMK.Size = new System.Drawing.Size(155, 40);
+            this.btnXemMK.Size = new System.Drawing.Size(133, 32);
             this.btnXemMK.TabIndex = 7;
             this.btnXemMK.Text = "Xem mật khẩu";
             this.btnXemMK.UseVisualStyleBackColor = true;
@@ -134,9 +141,10 @@ namespace management
             // btnDelete
             // 
             this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Location = new System.Drawing.Point(629, 131);
+            this.btnDelete.Location = new System.Drawing.Point(504, 102);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(155, 41);
+            this.btnDelete.Size = new System.Drawing.Size(133, 33);
             this.btnDelete.TabIndex = 8;
             this.btnDelete.Text = "Xóa";
             this.btnDelete.UseVisualStyleBackColor = true;
@@ -145,43 +153,48 @@ namespace management
             // txtAcc
             // 
             this.txtAcc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAcc.Location = new System.Drawing.Point(349, 81);
+            this.txtAcc.Location = new System.Drawing.Point(296, 65);
+            this.txtAcc.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtAcc.Name = "txtAcc";
-            this.txtAcc.Size = new System.Drawing.Size(256, 30);
+            this.txtAcc.Size = new System.Drawing.Size(193, 26);
             this.txtAcc.TabIndex = 9;
             // 
             // txtPass
             // 
             this.txtPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPass.Location = new System.Drawing.Point(349, 122);
+            this.txtPass.Location = new System.Drawing.Point(296, 98);
+            this.txtPass.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtPass.Name = "txtPass";
-            this.txtPass.Size = new System.Drawing.Size(256, 30);
+            this.txtPass.Size = new System.Drawing.Size(193, 26);
             this.txtPass.TabIndex = 10;
             // 
             // txtName
             // 
             this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtName.Location = new System.Drawing.Point(349, 163);
+            this.txtName.Location = new System.Drawing.Point(296, 131);
+            this.txtName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(256, 30);
+            this.txtName.Size = new System.Drawing.Size(193, 26);
             this.txtName.TabIndex = 11;
             // 
             // lbSearch
             // 
             this.lbSearch.AutoSize = true;
             this.lbSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbSearch.Location = new System.Drawing.Point(206, 287);
+            this.lbSearch.Location = new System.Drawing.Point(179, 234);
+            this.lbSearch.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbSearch.Name = "lbSearch";
-            this.lbSearch.Size = new System.Drawing.Size(101, 25);
+            this.lbSearch.Size = new System.Drawing.Size(77, 20);
             this.lbSearch.TabIndex = 12;
             this.lbSearch.Text = "Tìm Kiếm:";
             // 
             // txtSearch
             // 
             this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearch.Location = new System.Drawing.Point(349, 284);
+            this.txtSearch.Location = new System.Drawing.Point(287, 232);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(435, 30);
+            this.txtSearch.Size = new System.Drawing.Size(350, 26);
             this.txtSearch.TabIndex = 13;
             this.txtSearch.TextChanged += new System.EventHandler(this.SearchInStaff);
             // 
@@ -189,18 +202,20 @@ namespace management
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(206, 207);
+            this.label5.Location = new System.Drawing.Point(167, 168);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(91, 25);
+            this.label5.Size = new System.Drawing.Size(70, 20);
             this.label5.TabIndex = 15;
             this.label5.Text = "Chức vụ:";
             // 
             // btnShift
             // 
             this.btnShift.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnShift.Location = new System.Drawing.Point(22, 122);
+            this.btnShift.Location = new System.Drawing.Point(16, 99);
+            this.btnShift.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnShift.Name = "btnShift";
-            this.btnShift.Size = new System.Drawing.Size(158, 43);
+            this.btnShift.Size = new System.Drawing.Size(137, 35);
             this.btnShift.TabIndex = 16;
             this.btnShift.Text = "Sắp xếp ca làm";
             this.btnShift.UseVisualStyleBackColor = true;
@@ -209,9 +224,10 @@ namespace management
             // btnDoiMK
             // 
             this.btnDoiMK.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDoiMK.Location = new System.Drawing.Point(629, 224);
+            this.btnDoiMK.Location = new System.Drawing.Point(504, 178);
+            this.btnDoiMK.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnDoiMK.Name = "btnDoiMK";
-            this.btnDoiMK.Size = new System.Drawing.Size(155, 40);
+            this.btnDoiMK.Size = new System.Drawing.Size(133, 32);
             this.btnDoiMK.TabIndex = 17;
             this.btnDoiMK.Text = "Đổi mật khẩu";
             this.btnDoiMK.UseVisualStyleBackColor = true;
@@ -220,9 +236,10 @@ namespace management
             // btnXemca
             // 
             this.btnXemca.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnXemca.Location = new System.Drawing.Point(22, 176);
+            this.btnXemca.Location = new System.Drawing.Point(16, 143);
+            this.btnXemca.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnXemca.Name = "btnXemca";
-            this.btnXemca.Size = new System.Drawing.Size(158, 43);
+            this.btnXemca.Size = new System.Drawing.Size(137, 35);
             this.btnXemca.TabIndex = 18;
             this.btnXemca.Text = "Xem ca làm";
             this.btnXemca.UseVisualStyleBackColor = true;
@@ -231,9 +248,10 @@ namespace management
             // button8
             // 
             this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.Location = new System.Drawing.Point(22, 230);
+            this.button8.Location = new System.Drawing.Point(16, 187);
+            this.button8.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(158, 43);
+            this.button8.Size = new System.Drawing.Size(137, 35);
             this.button8.TabIndex = 19;
             this.button8.Text = "Xem nhân viên";
             this.button8.UseVisualStyleBackColor = true;
@@ -243,26 +261,28 @@ namespace management
             // 
             this.cbRollName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbRollName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbRollName.Location = new System.Drawing.Point(349, 204);
+            this.cbRollName.Location = new System.Drawing.Point(296, 165);
+            this.cbRollName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbRollName.Name = "cbRollName";
-            this.cbRollName.Size = new System.Drawing.Size(256, 33);
+            this.cbRollName.Size = new System.Drawing.Size(193, 28);
             this.cbRollName.TabIndex = 20;
             // 
             // label4
             // 
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(12, 11);
+            this.label4.Location = new System.Drawing.Point(9, 9);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(779, 57);
+            this.label4.Size = new System.Drawing.Size(638, 46);
             this.label4.TabIndex = 21;
             this.label4.Text = "Nhà hàng dotNet - Quản lý nhân viên";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Staffs
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(803, 557);
+            this.ClientSize = new System.Drawing.Size(658, 453);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.cbRollName);
             this.Controls.Add(this.button8);
@@ -283,6 +303,7 @@ namespace management
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataUserGridView1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Staffs";
             this.Text = "Staffs";
             ((System.ComponentModel.ISupportInitialize)(this.dataUserGridView1)).EndInit();
