@@ -47,8 +47,7 @@ namespace management
 
         private void btnOrders(object sender, EventArgs e)
         {
-            user.GetStartHoursFromDb(user.users["uid"]);
-            if (user.CheckIsWorkingHour() == true)
+            if (user.CheckIsWorkingHour(user.users["uid"]) == true)
             {
                 //MessageBox.Show("co");
                 this.Hide();

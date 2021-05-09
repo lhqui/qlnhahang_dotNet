@@ -41,7 +41,6 @@ namespace management
             this.label3 = new System.Windows.Forms.Label();
             this.lbSearch = new System.Windows.Forms.Label();
             this.txtSearch = new System.Windows.Forms.TextBox();
-            this.button5 = new System.Windows.Forms.Button();
             this.cbKind = new System.Windows.Forms.ComboBox();
             this.foodkindBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.nhahangDataSet = new management.nhahangDataSet();
@@ -177,17 +176,6 @@ namespace management
             this.txtSearch.TabIndex = 12;
             this.txtSearch.TextChanged += new System.EventHandler(this.OnSearchchange);
             // 
-            // button5
-            // 
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(22, 353);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(144, 45);
-            this.button5.TabIndex = 13;
-            this.button5.Text = "Tải lại";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.Refrs);
-            // 
             // cbKind
             // 
             this.cbKind.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -274,7 +262,6 @@ namespace management
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.fillByToolStrip);
             this.Controls.Add(this.cbKind);
-            this.Controls.Add(this.button5);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.lbSearch);
             this.Controls.Add(this.label3);
@@ -312,7 +299,6 @@ namespace management
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lbSearch;
         private System.Windows.Forms.TextBox txtSearch;
-        private System.Windows.Forms.Button button5;
         private System.Windows.Forms.ComboBox cbKind;
         private nhahangDataSet nhahangDataSet;
         private System.Windows.Forms.BindingSource foodkindBindingSource;
