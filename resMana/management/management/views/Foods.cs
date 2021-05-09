@@ -206,10 +206,11 @@ namespace management
             String deleteQueryFk = "delete from ORDERLIST where FOODID=" + this.foodid;
             if (diag == DialogResult.Yes && foodid != "")
             {
-                //Console.WriteLine(query);
-                db.ExecuteNonQuery(deleteQueryFk);
+                Console.WriteLine(deleteQueryFk);
+                Console.WriteLine(query);
+                 db.ExecuteNonQuery(deleteQueryFk);
                 db.ExecuteNonQuery(query);
-                Message(db.count);
+                //Message(db.count);
                 Clear();
                 CheckAreAnyFood();
                 ShowAllFood();
