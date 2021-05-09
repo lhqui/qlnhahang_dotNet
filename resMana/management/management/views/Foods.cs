@@ -187,7 +187,7 @@ namespace management
                 } else
                 {
 
-                    MessageBox.Show("Ten dang rong");
+                    MessageBox.Show("Tên đang rỗng");
 
                 }
 
@@ -201,7 +201,7 @@ namespace management
         private void DeleteFood(object sender, EventArgs e)
         {
             GetFoodIdInRow();
-            DialogResult diag = MessageBox.Show("Bạn  có muốn xóa", "Xóa", MessageBoxButtons.YesNo);
+            DialogResult diag = MessageBox.Show("Bạn có muốn xóa?", "Xóa", MessageBoxButtons.YesNo);
             String query = "delete from foods where foodid=" + this.foodid;
             if (diag == DialogResult.Yes && foodid != "")
             {

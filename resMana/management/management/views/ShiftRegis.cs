@@ -32,7 +32,7 @@ namespace management
             db.Query(queryCheck);
             if(db.count > 0)
             {
-                MessageBox.Show("Ca da duoc dang ky");
+                MessageBox.Show("Ca làm đã được đăng ký");
             } else
             {
                 // dang ky ca lam vao db
@@ -42,11 +42,11 @@ namespace management
                 db.ExecuteNonQuery(queryInsert);
                 if (db.count != 0)
                 {
-                    MessageBox.Show("dang ki thanh cong");
+                    MessageBox.Show("Đăng ký thành công");
                 }
                 else
                 {
-                    MessageBox.Show("khong dang ky duoc");
+                    MessageBox.Show("Đăng ký thất bại");
                 }
             }
             //MessageBox.Show(query);

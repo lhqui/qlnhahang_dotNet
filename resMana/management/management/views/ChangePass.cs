@@ -30,14 +30,14 @@ namespace management
                 db.ExecuteNonQuery(query);
                 if(db.count != 0)
                 {
-                    MessageBox.Show("Thanh Cong");
+                    MessageBox.Show("Thành công");
                 } else
                 {
-                    MessageBox.Show("That bai");
+                    MessageBox.Show("Thất bại");
                 }
             } else
             {
-                MessageBox.Show("mat khau khong giong nhau");
+                MessageBox.Show("Mật khẩu không trùng khớp");
             }
             //this.Hide();
             //Staffs st = new Staffs();

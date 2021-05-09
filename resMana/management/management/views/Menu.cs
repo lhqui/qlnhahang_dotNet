@@ -86,7 +86,7 @@ namespace management
                 this.Close();
             } else
             {
-                MessageBox.Show("Ban khong du quyen");
+                MessageBox.Show("Bạn không đủ quyền");
             }
 
         }

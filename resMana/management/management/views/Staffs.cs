@@ -54,7 +54,7 @@ namespace management
                 sr.ShowDialog();
             } else
             {
-                MessageBox.Show("ban ko du quyen");
+                MessageBox.Show("Bạn không đủ quyền");
             }
 
         }
@@ -101,7 +101,7 @@ namespace management
             int lstIndex = 0;
             if( cbRollName.SelectedIndex == -1)
             {
-                MessageBox.Show("hay chon chuc vu");
+                MessageBox.Show("Hãy chọn chức vụ");
             } else
             {
                 lstIndex = cbRollName.SelectedIndex + 1;
@@ -122,10 +122,10 @@ namespace management
         {
             if (count != 0)
             {
-                MessageBox.Show("Thanh cong");
+                MessageBox.Show("Thành công");
             } else
             {
-                MessageBox.Show("That bai");
+                MessageBox.Show("Thất bại");
             }
         }
         private void AddUser(object sender, EventArgs e)
@@ -145,11 +145,11 @@ namespace management
 
                 } else
                 {
-                    MessageBox.Show("tai khoan da ton tai");
+                    MessageBox.Show("Tài khoản đã tồn tại");
                 }
             } else
             {
-                MessageBox.Show("Xin hay dien het");
+                MessageBox.Show("Xin hãy điền hết");
             }
 
         }
@@ -207,7 +207,7 @@ namespace management
 
             } else
             {
-                MessageBox.Show("Khong the xoa tai khoan nay");
+                MessageBox.Show("Không thể xóa tài khoản này");
             }
             //MessageBox.Show(this.userId);
         }
@@ -216,7 +216,7 @@ namespace management
         {
            GetIdUserInCell();
             Users us = new Users(this.userId);
-            MessageBox.Show("Mat khau la: " + us.users["password"]);
+            MessageBox.Show("Mật khẩu là: " + us.users["password"]);
         }
         private void ShowDataToGridView()
         {

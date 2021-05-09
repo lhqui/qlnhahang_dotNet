@@ -36,11 +36,11 @@ namespace management
                 }
                 else
                 {
-                    MessageBox.Show("User or Password not true!");
+                    MessageBox.Show("Tên người dùng hoặc mật khẩu không chính xác!");
                 }
             } else
             {
-                MessageBox.Show("User or Password are blank!");
+                MessageBox.Show("Vui lòng điền đầy đủ vào form!");
             }
         }
 

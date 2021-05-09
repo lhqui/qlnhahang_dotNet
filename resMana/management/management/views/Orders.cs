@@ -134,7 +134,7 @@ namespace management
             Order order = new Order(this.orderId);
             if(CheckEmptyBill() == true)
             {
-                DialogResult diag = MessageBox.Show("Hien chua co mon ban muon huy khong?", "huy", MessageBoxButtons.YesNo);
+                DialogResult diag = MessageBox.Show("Hiện chưa có món, bạn có muốn hủy không?", "Hủy", MessageBoxButtons.YesNo);
                 if (diag == DialogResult.Yes)
                 {
                     String queryDeleteBill = "delete orders where ordersid=" + this.orderId;
@@ -142,7 +142,7 @@ namespace management
                     Console.WriteLine(queryUpdateTable);
                     db.ExecuteNonQuery(queryUpdateTable);
                     db.ExecuteNonQuery(queryDeleteBill);
-                    MessageBox.Show("Da Huy");
+                    MessageBox.Show("Đã hủy");
                 }
 
             } else
